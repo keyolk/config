@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CONFIG_REPO="$HOME/.config.repo"
-git clone --bare https://github.com/keyolk/config.git $HOME/.config.repo
+CONFIG_REPO=.config.repo
+git clone --bare https://github.com/keyolk/config.git $HOME/$CONFIG_REPO
 
 curl -Lks https://raw.githubusercontent.com/keyolk/config/master/.config/bin/config-install | bash
