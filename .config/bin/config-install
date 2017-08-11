@@ -40,6 +40,7 @@ config diff --name-only --diff-filter=M | tar -czf $REPO.backup.tgz -T -
 
 # branch can be set in the environment
 config checkout -f $CONFIG_BRANCH
+config submodule update --init --recursive
 
 # we do not modify .bashrc with alias config command since this presumably
 # has been done in a .bashrc file just checked out
