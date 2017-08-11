@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# update files after content has been pushed from downstream repo
+
+REPO=$HOME/${CONFIG_REPO:-.config.repo}
+
+function config {
+   /usr/bin/git --git-dir=$REPO/ --work-tree=$HOME $@
+}
+
+config reset HEAD
+config checkout $HOME

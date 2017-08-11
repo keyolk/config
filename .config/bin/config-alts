@@ -1,0 +1,110 @@
+#!/bin/bash
+
+# Normally run as part of config-setup, but can also be run standalone
+# if no system setup is desired, or if custom configurations are needed
+# as argument.
+#
+# See also comments in `.config/alts/alts.conf`.
+
+HERE=$(dirname $0)
+
+function help() {
+
+echo "Usage: $(basename $0) [config-name]*"
+echo "       $(basename $0) [help]*"
+
+cat <<'EOS'
+Alternative configurations are files that may differ between operating
+systems, hosts, or users, etc. These are symbolically linked.
+The optional `alts.conf` config file in `.config/alts` is used by the command
+`config-alts <config-name>*`. If absent, no alternative configurations
+will be installed.
+example alts.conf:
+    # vimrc.local config is optional
+    .vimrc.local
+    # tmux.local must be present
+    .tmux.local
+    # example with subdir - here the $HOME/myproject dir must exist.
+    myproject/hello
+The <default> and current OS (e.g. <osx> or <ubuntu>) configurations are
+always run before any specified name. The command is also run without
+just default and OS configuration when `config-setup` is called.
+Files are linked from an alternative configuration into the
+$HOME directory:
+ $HOME/<path> -> ~/.config/alts/<config-name>/<path>
+Where `path` is a relative path listed in this file.
+A file is only linked if the file exists both in this configuration
+and in selection configuration directory, otherwise the destination is
+left untouched. Existing destination files are copied with a .backup
+suffix. Existing symbolic links are replaced.
+Multiple configurations are processed in order of increasing
+specialization. User specified specializations can be provided with 
+    `config-alts <config-name>*`
+The default and OS is always processed before any arguments and this
+is done automatically by `config-setup` if used.
+Priorities can be changed, for example by adding the OS configuratin
+last.
+It is possible to roll back a custom configuration by calling
+`config-alts` again with less or different arguments BUT a linked
+file is never unlinked so there must be an empty default to reset a
+specialization.
+If a non-symbolic file exists in the destination file location, it is
+copied with a .backup suffix. If it is a symblic link, it is replaced.
+Additional configurations can be automatically installed by calling
+`config-alts <config-name>` from within a custom setup script under
+`.config/setup/<os-name>/setup.sh`, for example by checking for a
+host or user name.
+EOS
+exit 0
+}
+
+case $1 in
+    help) help;;
+    --help) help;;
+esac
+
+case "$(uname -a)" in
+    *Darwin*)
+        OS=osx
+        ;;
+    *Ubuntu*) 
+        OS=ubuntu
+        ;;
+    *Linux*)
+        OS=linux
+        ;;
+    *)
+        OS=other
+        ;;
+esac
+
+ALTS_SRC=$HOME/.config/alts
+ALTS_CONF=$ALTS_SRC/alts.conf
+
+if [ ! -e $ALTS_CONF ] ; then
+    # This is not an error
+    echo "Skipping alternative configuration, no 'alts.conf' found in '$ALTS_SRC'"
+    exit 0
+fi
+
+function mk_links() {
+    if [ -d "$LINKS_SRC/$1" ] ; then
+        echo "processing alternative configuration: $1"
+        # http://stackoverflow.com/a/28806991
+        # egrep strips comments and blank lines
+        [ -e $ALTS_CONF ] && cat $ALTS_CONF | \
+            egrep -v '^[[:space:]]*$|^ *#' | \
+            tr '\n' '\0' | xargs -0 -I{} $HERE/__link_file.sh $1 {} 
+    else
+        echo "skipping missing alternative configuration: $1"
+    fi
+}
+
+mk_links $ALTS_SRC/default
+mk_links $ALTS_SRC/$OS
+
+while [[ $# > 0 ]]
+do
+    mk_links $ALTS_SRC/$1
+    shift
+done

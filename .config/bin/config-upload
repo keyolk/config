@@ -1,0 +1,114 @@
+#!/bin/bash
+
+NAME=$(echo ${0##*/})
+
+function usage() {
+    echo "usage: $NAME [options] [<user>@]<host>"
+    echo ""
+    echo "options:"
+    echo "  -i <identify-file>   ssh/rsync with specific private key."
+    echo "  -b <branch>          check out specific branch on host."
+    echo "  --bare               only upload repo without tools or checkout."
+    echo "  --tools              install latest git and curl on supported platforms"
+    echo "                       note: checkout requires git with work-tree support."
+    echo "  --repo <repo-path>   path relative to $HOME. Defaults to '.config.repo'"
+    echo "                       or $CONFIG_REPO if set."
+    echo "  --remote-add <name>  adds host repo as remote in local repo."
+    echo ""
+    echo "Uploads config repo to host. If --bare is not specified, the default"
+    echo "or specified branch is checked out after archiving modified files to"
+    echo "~/.config.backup.tgz on host."
+
+    exit 1
+}
+
+IDENT=""
+BRANCH=""
+BARE=false
+TOOLS=false
+REMOTE=""
+CONFIG_REPO=${CONFIG_REPO:-".config.repo"}
+
+while [[ $# > 1 ]]
+do
+key="$1"
+case $key in
+    -i)
+        IDENT=" -i $2"
+        shift
+        ;;
+    -b)
+        BRANCH="$2"
+        shift
+        ;;
+    --bare)
+        BARE=true
+        ;;
+    --tools)
+        TOOLS=true
+        ;;
+    --repo)
+        CONFIG_REPO="$2"
+        shift
+        ;;
+    --remote-add)
+        REMOTE="$2"
+        shift
+        ;;
+    -h|--help)
+        usage
+        ;;
+    -*)
+        echo "unknown option: $key"
+        usage
+        ;;
+esac
+shift
+done
+
+if [[ $# != 1 || "$1" == "-"* ]] ; then
+    echo "host name missing"
+    usage
+fi
+
+
+HOST=$1
+
+
+if [ -z "$HOST" ]; then
+    echo "hostname missing"
+    usage
+fi
+
+if [ ! -e $HOME/$CONFIG_REPO ]; then
+    echo "local repo $HOME/$CONFIG_REPO not found"
+    usage
+fi
+
+set -e
+echo "uploading bare repository ..."
+rsync -az -e "ssh$IDENT" "$HOME/$CONFIG_REPO/" "$HOST:$CONFIG_REPO"
+
+if [ "$BARE" = true ]; then
+    echo "skipping checkout"
+else
+    if [ -n "$BRANCH" ]; then
+        echo "archiving modified files and checking out branch $BRANCH"
+    else
+        echo "archiving modified files and checking out default branch"
+    fi
+    ssh $IDENT $HOST \
+        CONFIG_BRANCH=$BRANCH CONFIG_TOOLS=$TOOLS CONFIG_REPO=$CONFIG_REPO \
+        'bash -s' < $HOME/.config/bin/config-install
+fi
+
+function config {
+   /usr/bin/git --git-dir=$HOME/$CONFIG_REPO/ --work-tree=$HOME $@
+}
+
+if [ -n "$REMOTE" ] ; then
+    echo "Adding remote host repo to local repo"
+    config remote add $REMOTE $HOST:$CONFIG_REPO
+fi
+
+echo "done"

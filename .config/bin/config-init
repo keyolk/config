@@ -1,0 +1,41 @@
+#!/bin/sh
+
+set -e
+
+# we use a root directory for repo so it is easy to scp up to a new host
+
+mkdir -p $HOME/.config/fish
+mkdir -p $HOME/.config/bin
+
+# CONFIG_REPO is relative to home so it also works on remote hosts
+export CONFIG_REPO=${CONFIG_REPO:-".config.repo"}
+
+if [ -e $HOME/$CONFIG_REPO ]; then
+    echo "repo exists, skipping ..."
+    exit 1
+fi
+
+git init --bare $HOME/$CONFIG_REPO
+alias config='/usr/bin/git --git-dir=$HOME/$CONFIG_REPO --work-tree=$HOME'
+
+# Use git add -f to add ignored files, this enables git add -A without adding the world.
+echo '*' >> $HOME/$CONFIG_REPO/info/exclude
+echo '.*' >> $HOME/$CONFIG_REPO/info/exclude
+
+# If .gitignore overshadows info/exclude, this is still useful.
+# config config --local status.showUntrackedFiles no
+
+# setup bash
+echo 'export PATH=$PATH:$HOME/.config/bin' >> $HOME/.bashrc
+echo "export CONFIG_REPO=$CONFIG_REPO" >> $HOME/.bashrc
+echo 'alias config='"'"'/usr/bin/git --git-dir=$HOME/$CONFIG_REPO/ --work-tree=$HOME'"'" >> $HOME/.bashrc
+
+# setup fish
+echo 'set fish_user_paths $fish_user_paths $HOME/.config/bin' >> $HOME/.config/fish/config.fish
+echo "set -x CONFIG_REPO $CONFIG_REPO" >> $HOME/.config/fish/config.fish
+echo 'alias config='"'"'/usr/bin/git --git-dir=$HOME/$CONFIG_REPO/ --work-tree=$HOME'"'" >> $HOME/.config/fish/config.fish
+
+config add $HOME/.bashrc
+config add $HOME/.config/fish/config.fish
+
+config commit -m "Added bash and fish configuration"

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ALTS_SRC=$HOME/.config/alts
+ALTS_CONF=$ALTS_SRC/alts.conf
+ALTS_CMD=$(dirname $0)/config-alts
+SETUP_CMD=$HOME/.config/setup/setup.sh
+
+[ -e $ALTS_CMD ] && [ -e $ALTS_CONF ] && $ALTS_CMD
+[ -e $SETUP_CMD ] && $SETUP_CMD

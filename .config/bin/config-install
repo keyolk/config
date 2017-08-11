@@ -1,0 +1,46 @@
+#!/bin/bash -e
+
+REPO=$HOME/${CONFIG_REPO:-.config.repo}
+
+if [ ! -e $REPO ]; then
+    echo "first copy or clone bare config repo into $REPO"
+    echo "or alternatively create a new repo with 'config-init'"
+    exit 1
+fi
+
+
+# The config system depends git work-tree which isn't supported by
+# git 1.9 available on Ubuntu 14.04
+# curl is generally needed to install tools, including vim package
+# manager
+if [[ "$(uname -a)" == *"Ubuntu"* ]] ; then
+    if [ "$CONFIG_TOOLS" = true ] ; then
+        sudo add-apt-repository ppa:git-core/ppa
+        sudo apt-get update
+        sudo apt-get install git curl
+    fi
+fi
+
+function config {
+   /usr/bin/git --git-dir=$REPO/ --work-tree=$HOME $@
+}
+
+config config status.showUntrackedFiles no
+
+if [ -e $REPO.backup.tgz ]; then
+    mv $REPO.backup.tgz $REPO.backup.old.tgz
+fi
+
+# find modified, but present files (git ls-files --modified won't do that)
+config diff --name-only --diff-filter=M | tar -czf $REPO.backup.tgz -T -
+# The original state can largely be restored with
+# config rm -r $HOME && tar -xzf $CONFIG_REPO.backup.tgz
+# except files that are already identical when checking out will be removed
+# If this is important the current state can be checked into a dedicated branch.
+
+# branch can be set in the environment
+config checkout -f $CONFIG_BRANCH
+
+# we do not modify .bashrc with alias config command since this presumably
+# has been done in a .bashrc file just checked out
+
