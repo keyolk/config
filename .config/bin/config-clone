@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export CONFIG_REPO=${CONFIG_REPO:-"$HOME/.config.repo"}
+git clone --bare https://github.com/keyolk/config.git $HOME/.config.repo
+
+curl -Lks https://raw.githubusercontent.com/keyolk/config/master/.config/bin/config-install | bash
