@@ -18,4 +18,7 @@ set -x FISH /usr/bin/fish
 set -x CLANG_HOME /usr/lib/clang/4.0.1
 set -x CLANG_LIB /usr/lib/libclang.so
 set -x CLANG_INCLUDE $CLANG_HOME/include 
-set -x GOPATH $HOME/gopath
+set -x GOPATH $HOME/workspace/gopath
+
+## PATH
+set -x PATH $GOPATH/bin (gem environment gempath | cut -d: -f1)/bin $PATH

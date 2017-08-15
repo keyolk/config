@@ -11,6 +11,7 @@ highlight visual      ctermbg=100
 
 set signcolumn=yes
 set encoding=utf-8
+set noswapfile
 
 " set line number
 set relativenumber
