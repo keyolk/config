@@ -26,6 +26,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'easymotion/vim-easymotion'
+Plug 'will133/vim-dirdiff'
 
 " Linting
 Plug 'neomake/neomake'

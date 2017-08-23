@@ -21,6 +21,10 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='luna'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-gitgutter
+nnoremap <F4> :GitGutterToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " indentLine
 nnoremap <leader>i :IndentLinesToggle<CR>
 let g:indentLine_color_term = 239

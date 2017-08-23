@@ -53,7 +53,7 @@ noremap <S-q> :bp <BAR> bd #<CR>
 nnoremap <S-s> :w!<CR>
 
 " paste toggle
-set pastetoggle=<F5>
+set pastetoggle=<F2>
 
 " set leader
 let mapleader=","
@@ -64,3 +64,23 @@ set clipboard+=unnamedplus
 set splitbelow
 
 set mouse=a
+
+" clipboard
+"set clipboard+=unnamedplus
+
+set splitbelow
+
+set mouse=a
+
+" Relative or absolute number lines
+function! NumberToggle()
+    if(&nu == 1)
+        set nu!
+        set rnu!
+    else
+        set rnu
+        set nu
+    endif
+endfunction
+
+nnoremap <F3> :call NumberToggle()<CR>
