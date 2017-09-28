@@ -20,6 +20,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 
 " Editing
+Plug 'junegunn/goyo.vim'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/nerdcommenter'

@@ -34,7 +34,7 @@ nnoremap <A-k> <C-w>+
 nnoremap <A-l> <C-w>>
 
 " reload rc
-nnoremap <leader>r :source $MYVIMRC<CR>
+nmap <leader>r :source $MYVIMRC<CR>
 
 " window control
 nnoremap <C-j> <C-w><C-j>
