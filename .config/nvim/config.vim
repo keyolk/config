@@ -68,16 +68,20 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_lengh = 1
 
 " deoplete-clang
-let g:deoplete#sources#clang#libclang_path = '$CLANG_LIB'
-let g:deoplete#sources#clang#clang_header =  '$CLANG_INCLUDE'
+let g:deoplete#sources#clang#libclang_path = $CLANG_LIB
+let g:deoplete#sources#clang#clang_header =  $CLANG_INCLUDE
 
 " deoplete-go
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:deoplete#sources#go#use_cache = 0
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" chromatica
+let g:chromatica#libclang_path = $CLANG_LIB
+let g:chromatica#enable_at_startup=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" neomake
+" neomakek
 nnoremap <leader>m :Neomake<CR>
 let g:neomake_open_list = 4
 

@@ -60,6 +60,7 @@ Plug 'jodosha/vim-godebug'
 " Highlight
 Plug 'hashivim/vim-vagrant'
 Plug 'dag/vim-fish'
+Plug 'arakashic/chromatica.nvim'
 
 call plug#end()
 
