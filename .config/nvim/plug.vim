@@ -62,5 +62,8 @@ Plug 'hashivim/vim-vagrant'
 Plug 'dag/vim-fish'
 Plug 'arakashic/chromatica.nvim'
 
+" Integration
+Plug 'tmux-plugins/vim-tmux-focus-events'
+
 call plug#end()
 
