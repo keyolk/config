@@ -1,4 +1,5 @@
 fisherman/await
+barnybug/docker-fish-completion
 fisherman/fzf
 fisherman/get
 fisherman/getopts
