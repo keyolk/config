@@ -43,6 +43,7 @@ Plug 'zchee/deoplete-clang'
 Plug 'zchee/deoplete-zsh'
 Plug 'zchee/deoplete-jedi'
 Plug 'zchee/deoplete-go', { 'do': 'make' }
+Plug 'padawan-php/deoplete-padawan', { 'do': 'composer install' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Goto
