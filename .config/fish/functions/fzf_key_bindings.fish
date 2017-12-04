@@ -1,0 +1,1 @@
+/home1/irteam/naver/profile/keyolk/.fzf/shell/key-bindings.fish

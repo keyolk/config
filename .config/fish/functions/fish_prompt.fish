@@ -1,0 +1,1 @@
+/home1/irteam/naver/profile/keyolk/.config/fisherman/simple/functions/fish_prompt.fish
