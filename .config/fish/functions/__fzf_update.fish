@@ -1,1 +1,0 @@
-/home1/irteam/naver/profile/keyolk/.config/fisherman/fzf/functions/__fzf_update.fish

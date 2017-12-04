@@ -1,1 +1,0 @@
-/home1/irteam/naver/profile/keyolk/.config/fisherman/docker-fish-completion/gen_docker_fish_completions.py

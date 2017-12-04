@@ -1,1 +1,0 @@
-/home1/irteam/naver/profile/keyolk/.config/fisherman/docker-fish-completion/docker-compose.fish

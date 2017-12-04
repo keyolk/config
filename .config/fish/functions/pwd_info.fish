@@ -1,1 +1,0 @@
-/home1/irteam/naver/profile/keyolk/.config/fisherman/pwd_info/pwd_info.fish
