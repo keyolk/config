@@ -1,1 +1,0 @@
-/home1/irteam/naver/profile/keyolk/.config/fisherman/get/completions/get.fish
