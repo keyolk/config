@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tomasr/molokai'
 
 " Navigation
+Plug 'airblade/vim-rooter'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'majutsushi/tagbar'
