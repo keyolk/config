@@ -17,12 +17,13 @@ alias cilookup='/usr/local/sbin/cilookup'
 alias tmux-window="tmux list-window | fzf -0 -1 | awk '{print $2}' | xargs tmux select-window -t"
 
 ## common environment
-set -x GENTOO_PREFIX /home1/irteam/naver/profile/keyolk/gentoo
-set -x FISH $GENTOO_PREFIX/fish
-set -x CLANG_HOME $GENTOO_PREFIX/usr/lib64/clang/5.0.0
-set -x CLANG_LIB $GENTOO_PREFIX/usr/lib64/llvm/5/lib64/libclang.so
+set -x EDITOR /usr/bin/nvim
+set -x BROWSER /user/bin/chromium
+set -x FISH /usr/bin/fish
+set -x CLANG_HOME /usr/lib/clang/5.0.1
+set -x CLANG_LIB /usr/lib/libclang.so
 set -x CLANG_INCLUDE $CLANG_HOME/include 
-set -x GOPATH $HOME/work/gopath
+set -x GOPATH $HOME/workspace/gopath
 
 ## PATH
 set -x PATH $HOME/.local/bin $GOPATH/bin (gem environment gempath | cut -d: -f1)/bin $PATH
