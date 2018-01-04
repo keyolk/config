@@ -145,9 +145,18 @@ command! FZFLines call fzf#run({
 \   'down':    '60%'
 \})
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vimwiki
+"
+let g:vimwiki_list = [{'path': '~/wiki/', 
+\   'syntax': 'markdown', 
+\   'ext': '.md'}]
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nerdtree
-map <leader>n :NERDTreeToggle<CR>
+map <leader>nt :NERDTreeToggle<CR>
+map <leader>nf :NERDTreeFind<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd FileType nerdtree noremap <buffer> <S-L> <nop>
 autocmd FileType nerdtree noremap <buffer> <S-H> <nop>
@@ -155,8 +164,8 @@ autocmd FileType nerdtree noremap <buffer> <S-N> <nop>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tagbar
-nnoremap <leader>t :TagbarToggle<CR>
-
+nnoremap <leader>tt :TagbarToggle<CR>
+nnoremap <leader>tt :TagbarToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Goyo
