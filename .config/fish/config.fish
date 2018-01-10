@@ -23,8 +23,9 @@ set -x CLANG_HOME $GENTOO_PREFIX/usr/lib64/clang/5.0.0
 set -x CLANG_LIB $GENTOO_PREFIX/usr/lib64/llvm/5/lib64/libclang.so
 set -x CLANG_INCLUDE $CLANG_HOME/include 
 set -x GOPATH $HOME/work/gopath
+set -x EDITOR $GENTOO_PREFIX/usr/bin/nvim
 
-## PATH
+## path
 set -x PATH $HOME/.local/bin $GOPATH/bin (gem environment gempath | cut -d: -f1)/bin $PATH
 
 # locale

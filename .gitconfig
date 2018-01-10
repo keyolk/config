@@ -1,15 +1,23 @@
 [user]
-  email = keyolk@gmail.com
-  name = Chanhun Jeong
+	email = chanhun.jeong@navercorp.com
+	name = chanhun.jeong
 
 [alias]
   pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
   pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+	d = difftool
     
 [core]
 	editor = nvim
 
+[multidiff]
+  tool = vd -f
+
 [diff]
-  tool = default-difftool
-[difftool "default-difftool"]
+	tool = git-multidiff
+
+[difftool]
+	prompt = false
+
+[difftool "git-multidiff"]
   cmd = nvim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' $LOCAL $REMOTE '+syntax off'
