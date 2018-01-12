@@ -14,6 +14,7 @@ alias grep='grep --color=always'
 alias less='less -R'
 alias ssh='/usr/bin/ssh -F ~/.ssh/config'
 alias cilookup='/usr/local/sbin/cilookup'
+alias iplookup='/usr/local/sbin/iplookup'
 alias tmux-window="tmux list-window | fzf -0 -1 | awk '{print $2}' | xargs tmux select-window -t"
 alias tmux="tmux -S /home1/irteam/profile/keyolk/.tmux.sock -u -2"
 
