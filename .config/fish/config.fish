@@ -18,14 +18,13 @@ alias tmux-window="tmux list-window | fzf -0 -1 | awk '{print $2}' | xargs tmux 
 alias tmux="tmux -S /home1/irteam/profile/keyolk/.tmux.sock -u -2"
 
 ## common environment
-set -x EDITOR /usr/bin/nvim
-set -x BROWSER /user/bin/chromium
-set -x FISH /usr/bin/fish
-set -x CLANG_HOME /usr/lib/clang/5.0.1
-set -x CLANG_LIB /usr/lib/libclang.so
+set -x GENTOO_PREFX $HOME/gentoo
+set -x EDITOR $GENTOO_PREFX/usr/bin/nvim
+set -x FISH $GENTOO_PREFIX/bin/fish
+set -x CLANG_HOME $GENTOO_PREFIX/usr/lib/clang/5.0.0
+set -x CLANG_LIB $GENTOO_PREFIX/usr/lib64//llvm/5/lib64/libclang.so
 set -x CLANG_INCLUDE $CLANG_HOME/include 
 set -x GOPATH $HOME/work/gopath
-set -x EDITOR $GENTOO_PREFIX/usr/bin/nvim
 
 ## path
 set -x PATH $HOME/.local/bin $GOPATH/bin (gem environment gempath | cut -d: -f1)/bin $PATH
