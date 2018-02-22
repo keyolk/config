@@ -1,0 +1,4 @@
+[[snippets]]
+  description = "parallel default"
+  command = "pet new parallel \"ssh irteamsu@{} 'echo {};'\" ::: css1210 css1298 css(seq -w 0553 0555)"
+  output = ""
