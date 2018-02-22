@@ -2,3 +2,48 @@
   description = "parallel default"
   command = "pet new parallel \"ssh irteamsu@{} 'echo {};'\" ::: css1210 css1298 css(seq -w 0553 0555)"
   output = ""
+
+[[snippets]]
+  description = "tshark over ssh"
+  command = "ssh irteamsu@cccf001 \"sudo /usr/sbin/tcpdump -i any -U -w - port not 22\" | tshark -i -"
+  output = ""
+
+[[snippets]]
+  description = "curl swarm default"
+  command = "curl -G -XGET --cacert /naver/cocofarm/etc/key/ca.pem --key /naver/cocofarm/etc/key/key.pem /naver/cocofarm/etc/key/cert.pem https://csb70795.nfra.io:2376/service/json"
+  output = ""
+
+[[snippets]]
+  description = "curl docker filter"
+  command = "curl -G -XGET --cacert /naver/cocofarm/etc/key/ca.pem --key /naver/cocofarm/etc/key/key.pem /naver/cocofarm/etc/key/cert.pem https://csb70795.nfra.io:2376/service/json -d 'all=1' --data-urlencode 'filters={\"label\":[\"com.docker.swarm.hidden=true\"]}'"
+  output = ""
+
+[[snippets]]
+  description = "jq default"
+  command = "jq -r '.services[][] | .ServiceName + \" \" + .Address + \":\" + (.ServicePort|tostring)'"
+  output = ""
+
+[[snippets]]
+  description = "sort default"
+  command = "sort -u -k 1,1"
+  output = ""
+
+[[snippets]]
+  description = "tr default"
+  command = "tr \" \" \"\\n\""
+  output = ""
+
+[[snippets]]
+  description = "docker container pid"
+  command = "docker inspect --format '{{.State.Pid}}' NAME"
+  output = ""
+
+[[snippets]]
+  description = "kerberos keytab creating"
+  command = "set user keyolk; set pass PASSWORD; printf \"%b\" \"addent -password -p $user -k 1 -e des-cbc-crc\\n$pass\\nwrite_kt $user.keytab\" | ktutil"
+  output = ""
+
+[[snippets]]
+  description = "kerberos login"
+  command = "kinit -k -t ~/keyolk.keytab  keyolk  -l 24hrs"
+  output = ""
