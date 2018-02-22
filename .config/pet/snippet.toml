@@ -47,3 +47,18 @@
   description = "kerberos login"
   command = "kinit -k -t ~/keyolk.keytab  keyolk  -l 24hrs"
   output = ""
+
+[[snippets]]
+  description = "socat default"
+  command = "socat tcp-listen:2222,reuseaddr tcp:localhost:22"
+  output = ""
+
+[[snippets]]
+  description = "tcpdump default"
+  command = "tcpdump -np port 2222 and not port 42928"
+  output = ""
+
+[[snippets]]
+  description = "openssl x509 default"
+  command = "openssl x509 -in manager.crt  -text"
+  output = ""
