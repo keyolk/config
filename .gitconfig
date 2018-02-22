@@ -13,3 +13,5 @@
   tool = default-difftool
 [difftool "default-difftool"]
   cmd = nvim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' $LOCAL $REMOTE '+syntax off'
+[credential]
+	helper = cache --timeout 7200
