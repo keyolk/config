@@ -151,19 +151,19 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 command! -bang -nargs=* Find
   \ call fzf#vim#grep('rg --column --line-number --no-heading --color=always '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 
-nmap <leader>F :Find 
+nmap <leader>ff :Find 
 
 " Open files in horizontal split
-nnoremap <silent> <Leader>s :call fzf#run({
+nnoremap <silent> <Leader>fs :call fzf#run({
 \   'down': '40%',
 \   'sink': 'botright split' })<CR>
 
 " Open files in vertical horizontal split
-nnoremap <silent> <Leader>v :call fzf#run({
+nnoremap <silent> <Leader>fv :call fzf#run({
 \   'right': winwidth('.') / 2,
 \   'sink':  'vertical botright split' })<CR>
 
-nnoremap <silent> <Leader>C :call fzf#run({
+nnoremap <silent> <Leader>fc :call fzf#run({
 \   'source':
 \     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
 \         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
@@ -183,7 +183,7 @@ function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
 
-nnoremap <silent> <Leader><Enter> :call fzf#run({
+nnoremap <silent> <Leader>fb :call fzf#run({
 \   'source':  reverse(<sid>buflist()),
 \   'sink':    function('<sid>bufopen'),
 \   'options': '+m',
