@@ -65,6 +65,7 @@ Plug 'jodosha/vim-godebug'
 Plug 'hashivim/vim-vagrant'
 Plug 'dag/vim-fish'
 Plug 'arakashic/chromatica.nvim'
+Plug 'posva/vim-vue'
 
 " Integration
 Plug 'tmux-plugins/vim-tmux-focus-events'
