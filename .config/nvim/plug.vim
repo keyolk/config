@@ -19,6 +19,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 Plug 'Yggdroot/indentLine'
 
 " Editing
@@ -32,6 +33,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'easymotion/vim-easymotion'
 Plug 'will133/vim-dirdiff'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+Plug 'junegunn/vim-slash'
 
 " Linting
 Plug 'neomake/neomake'

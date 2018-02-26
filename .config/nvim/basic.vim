@@ -9,6 +9,7 @@ highlight errormsg    ctermbg=none
 highlight linenr      ctermbg=none
 highlight visual      ctermbg=100
 
+set smartcase
 set mouse=a
 set splitbelow
 
