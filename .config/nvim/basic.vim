@@ -65,9 +65,9 @@ nnoremap <S-l> :bnext<CR>
 noremap <S-q> :bp <BAR> bd #<CR>
 
 " tab control
-nnoremap <C-A-h> :bprev<CR>
-nnoremap <C-A-l> :bnext<CR>
-noremap <C-A-q> :bp <BAR> bd #<CR>
+"nnoremap <C-A-h> :bprev<CR>
+"nnoremap <C-A-l> :bnext<CR>
+"noremap <C-A-q> :bp <BAR> bd #<CR>
 
 " fast save
 nnoremap <S-s> :w!<CR>

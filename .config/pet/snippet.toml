@@ -1,6 +1,6 @@
 [[snippets]]
   description = "parallel default"
-  command = "pet new parallel \"ssh irteamsu@{} 'echo {};'\" ::: css1210 css1298 css(seq -w 0553 0555)"
+  command = "parallel \"ssh irteamsu@{} 'echo {};'\" ::: css1210 css1298 css(seq -w 0553 0555)"
   output = ""
 
 [[snippets]]
@@ -61,4 +61,9 @@
 [[snippets]]
   description = "openssl x509 default"
   command = "openssl x509 -in manager.crt  -text"
+  output = ""
+
+[[snippets]]
+  description = "du default"
+  command = "du -chs /*"
   output = ""
