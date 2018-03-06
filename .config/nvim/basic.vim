@@ -32,6 +32,10 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
+" whitespace
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+set list
+
 " set leader
 let mapleader=","
 
@@ -87,5 +91,15 @@ function! NumberToggle()
     else
         set rnu
         set nu
+    endif
+endfunction
+
+" Relative or absolute number lines
+nnoremap <F6> :call ListToggle()<CR>
+function! ListToggle()
+    if(&list == 1)
+        set nolist
+    else
+        set list
     endif
 endfunction
