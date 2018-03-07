@@ -67,3 +67,8 @@
   description = "du default"
   command = "du -chs /*"
   output = ""
+
+[[snippets]]
+  description = "rsync default"
+  command = "rsync -av SOURCE TARGET --bwlimit=10000"
+  output = ""
