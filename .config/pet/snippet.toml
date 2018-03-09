@@ -71,4 +71,8 @@
 [[snippets]]
   description = "find default"
   command = "find . -maxdepth 5 -not -name \"*.txt\" -name '*.sample' -type f -size +0M -exec stat '{}' \\;"
+
+[[snippets]]
+  description = "rsync default"
+  command = "rsync -av SOURCE TARGET --bwlimit=10000"
   output = ""
