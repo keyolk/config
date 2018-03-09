@@ -18,7 +18,6 @@ function fish_user_key_bindings
     else
         bind \cf '__fzf_find_file'
         bind \cr '__fzf_reverse_isearch'
-        bind \ex '__fzf_find_and_execute'
         bind \eo '__fzf_cd'
         bind \eO '__fzf_cd --hidden'
         if bind -M insert >/dev/null ^/dev/null
@@ -28,5 +27,7 @@ function fish_user_key_bindings
             bind -M insert \eO '__fzf_cd --hidden'
         end
     end
+    set -q FZF_COMPLETE
+    and bind \t '__fzf_complete'
     ### fzf ###
 end
