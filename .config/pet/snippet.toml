@@ -67,3 +67,8 @@
   description = "du default"
   command = "du -chs /*"
   output = ""
+
+[[snippets]]
+  description = "find default"
+  command = "find . -maxdepth 5 -not -name \"*.txt\" -name '*.sample' -type f -size +0M -exec stat '{}' \\;"
+  output = ""
