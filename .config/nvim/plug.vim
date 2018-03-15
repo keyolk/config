@@ -5,7 +5,7 @@ Plug 'tomasr/molokai'
 
 " Navigation
 Plug 'airblade/vim-rooter'
-Plug 'scrooloose/nerdtree', {'on': ['NERDTreeFind', 'NERDTreeToggle']}
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'majutsushi/tagbar'
 Plug 'farmergreg/vim-lastplace'
@@ -68,4 +68,3 @@ Plug 'arakashic/chromatica.nvim'
 Plug 'posva/vim-vue'
 
 call plug#end()
-

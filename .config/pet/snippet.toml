@@ -71,8 +71,14 @@
 [[snippets]]
   description = "find default"
   command = "find . -maxdepth 5 -not -name \"*.txt\" -name '*.sample' -type f -size +0M -exec stat '{}' \\;"
+  output = ""
 
 [[snippets]]
   description = "rsync default"
   command = "rsync -av SOURCE TARGET --bwlimit=10000"
+  output = ""
+
+[[snippets]]
+  description = "git log default"
+  command = "git log -p -1"
   output = ""
