@@ -5,7 +5,7 @@ Plug 'tomasr/molokai'
 
 " Navigation
 Plug 'airblade/vim-rooter'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', {'on': ['NERDTreeFind', 'NERDTreeToggle']}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'majutsushi/tagbar'
 Plug 'farmergreg/vim-lastplace'
@@ -23,8 +23,7 @@ Plug 'junegunn/gv.vim'
 Plug 'Yggdroot/indentLine'
 
 " Editing
-Plug 'junegunn/goyo.vim'
-Plug 'roxma/vim-tmux-clipboard'
+"Plug 'roxma/vim-tmux-clipboard' "too slow
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/vim-easy-align'
@@ -33,7 +32,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'easymotion/vim-easymotion'
 Plug 'will133/vim-dirdiff'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-Plug 'junegunn/vim-slash'
 
 " Linting
 Plug 'neomake/neomake'
@@ -52,8 +50,8 @@ Plug 'padawan-php/deoplete-padawan', { 'do': 'composer install' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Goto
-Plug 'JCLiang/vim-cscope-utils'
-Plug 'chazy/cscope_maps'
+Plug 'JCLiang/vim-cscope-utils' "too slow
+"Plug 'chazy/cscope_maps' "too slow
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -68,9 +66,6 @@ Plug 'hashivim/vim-vagrant'
 Plug 'dag/vim-fish'
 Plug 'arakashic/chromatica.nvim'
 Plug 'posva/vim-vue'
-
-" Integration
-Plug 'tmux-plugins/vim-tmux-focus-events'
 
 call plug#end()
 
