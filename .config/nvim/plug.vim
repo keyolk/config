@@ -38,7 +38,6 @@ Plug 'neomake/neomake'
 
 " Autocomplete
 Plug 'jiangmiao/auto-pairs'
-Plug 'ervandew/supertab'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -51,7 +50,6 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Goto
 Plug 'JCLiang/vim-cscope-utils' "too slow
-"Plug 'chazy/cscope_maps' "too slow
 
 " Snippets
 Plug 'SirVer/ultisnips'

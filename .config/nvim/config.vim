@@ -1,4 +1,3 @@
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimwiki
 "
@@ -18,29 +17,6 @@ autocmd FileType nerdtree noremap <buffer> <S-N> <nop>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tagbar
 nnoremap <leader>tt :TagbarToggle<CR>
-nnoremap <leader>tt :TagbarToggle<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Goyo
-nnoremap <F5> :Goyo <CR>
-function! s:goyo_enter()
-  set noshowmode
-  set noshowcmd
-  set scrolloff=999
-  set number
-  set rnu
-  " ...
-endfunction
- 
-function! s:goyo_leave()
-  set showmode
-  set showcmd
-  set scrolloff=999
-  " ...
-endfunction
- 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cscope
@@ -70,10 +46,6 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" super tab
-let g:SuperTabClosePreviewOnPopupClose = 0
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_lengh = 1
@@ -92,7 +64,7 @@ let g:chromatica#libclang_path = $CLANG_LIB
 let g:chromatica#enable_at_startup=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" neomakek
+" neomake
 nnoremap <leader>m :Neomake<CR>
 let g:neomake_open_list = 4
 
