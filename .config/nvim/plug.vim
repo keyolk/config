@@ -32,6 +32,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'easymotion/vim-easymotion'
 Plug 'will133/vim-dirdiff'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+Plug 'johngrib/vim-f-hangul'
 
 " Linting
 Plug 'neomake/neomake'
