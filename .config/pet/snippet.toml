@@ -82,3 +82,8 @@
   description = "git log default"
   command = "git log -p -1"
   output = ""
+
+[[snippets]]
+  description = "ps cpu top 10"
+  command = "ps -eo pcpu,pid,ppid,user,args | sort -k1 -r | head -10"
+  output = ""
