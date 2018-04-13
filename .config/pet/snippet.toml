@@ -87,3 +87,28 @@
   description = "ps cpu top 10"
   command = "ps -eo pcpu,pid,ppid,user,args | sort -k1 -r | head -10"
   output = ""
+
+[[snippets]]
+  description = "strace default"
+  command = "strace -f -e trace=mount -s 1024 -v -p ${PID}"
+  output = ""
+
+[[snippets]]
+  description = "git log commit"
+  command = "git --no-pager log --pretty=format:\"%h\" $FILE"
+  output = ""
+
+[[snippets]]
+  description = "git show default"
+  command = "git show $COMMIT:$FILE"
+  output = ""
+
+[[snippets]]
+  description = "awk default"
+  command = "awk -F: '/^[^#]/{print $1}'"
+  output = ""
+
+[[snippets]]
+  description = "awk start with"
+  command = "awk -F: '$1 ~ /^1/'"
+  output = ""

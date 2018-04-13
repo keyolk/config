@@ -33,6 +33,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'will133/vim-dirdiff'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'johngrib/vim-f-hangul'
+Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 
 " Linting
 Plug 'neomake/neomake'
