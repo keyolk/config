@@ -112,3 +112,13 @@
   description = "awk start with"
   command = "awk -F: '$1 ~ /^1/'"
   output = ""
+
+[[snippets]]
+  description = "curl unix hex"
+  command = "curl -s --unix /var/run/docker.sock 'http://localhost/containers/cocostats-agent/logs?timestamps=1&stdout=1&tail=1&follow=0' --output - | hexdump -C | head"
+  output = ""
+
+[[snippets]]
+  description = "jq with less"
+  command = "cat test.json | jq -C . | less -r"
+  output = ""

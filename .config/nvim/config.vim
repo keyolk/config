@@ -84,7 +84,7 @@ let g:neomake_javascript_enabled_makers = ['jscs']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " fzf
-nmap <leader>fn :FZF<CR>
+nmap <leader>f :FZF<CR>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -263,3 +263,5 @@ command! FZFLines call fzf#run({
 au FileType go nmap <leader>rt <Plug>(go-run-tab)
 au FileType go nmap <Leader>rs <Plug>(go-run-split)
 au FileType go nmap <Leader>rv <Plug>(go-run-vertical)
+
+let g:go_fmt_command = "goimports"
