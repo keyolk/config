@@ -122,3 +122,13 @@
   description = "jq with less"
   command = "cat test.json | jq -C . | less -r"
   output = ""
+
+[[snippets]]
+  description = "git find branch which has the COMMIT"
+  command = "git branch --all --contains COMMIT"
+  output = ""
+
+[[snippets]]
+  description = "awk get diff with previous line"
+  command = "awk '{print $16}' | awk 'NR == 1 {old=$1; next}{print $1 - old; old = $1}'"
+  output = ""
