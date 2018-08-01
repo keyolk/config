@@ -13,19 +13,16 @@ alias vim=nvim
 alias grep='grep --color=always'
 alias less='less -R'
 alias ssh='/usr/bin/ssh -F ~/.ssh/config'
-alias cilookup='/usr/local/sbin/cilookup'
-alias tmux-window="tmux list-window | fzf -0 -1 | awk '{print $2}' | xargs tmux select-window -t"
 
 ## common environment
 set -x EDITOR /usr/bin/nvim
 set -x BROWSER /user/bin/chromium
 set -x FISH /usr/bin/fish
-set -x CLANG_HOME /usr/lib/clang/5.0.1
+set -x CLANG_HOME /usr/lib/clang/latest
 set -x CLANG_LIB /usr/lib/libclang.so
 set -x CLANG_INCLUDE $CLANG_HOME/include 
 set -x GOPATH (readlink -f $HOME/work/gopath)
 set -x GIT_TERMINAL_PROMPT 1
-set -x FZF_DEFAULT_OPTS '--preview "head -$LINES {}"'
 
 ## PATH
 set -x PATH $HOME/.local/bin $GOPATH/bin (gem environment gempath | cut -d: -f1)/bin $PATH
