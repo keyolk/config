@@ -25,6 +25,7 @@ set -x CLANG_LIB /usr/lib/libclang.so
 set -x CLANG_INCLUDE $CLANG_HOME/include 
 set -x GOPATH (readlink -f $HOME/work/gopath)
 set -x GIT_TERMINAL_PROMPT 1
+set -x FZF_DEFAULT_OPTS '--preview "head -$LINES {}"'
 
 ## PATH
 set -x PATH $HOME/.local/bin $GOPATH/bin (gem environment gempath | cut -d: -f1)/bin $PATH
@@ -32,3 +33,5 @@ set -x PATH $HOME/.local/bin $GOPATH/bin (gem environment gempath | cut -d: -f1)
 # locale
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
+
+source ~/.local/bin/source.fish

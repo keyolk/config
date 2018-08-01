@@ -47,21 +47,43 @@ nmap ga <Plug>(EasyAlign)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " deoplete
-let g:deoplete#enable_at_startup = 1
+set completeopt=longest,menuone,preview
+
+let g:deoplete#enable_at_startup         = 1
 let g:deoplete#auto_complete_start_lengh = 1
 
 " deoplete-clang
 let g:deoplete#sources#clang#libclang_path = $CLANG_LIB
-let g:deoplete#sources#clang#clang_header =  $CLANG_INCLUDE
+let g:deoplete#sources#clang#clang_header  = $CLANG_INCLUDE
 
 " deoplete-go
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#use_cache = 0
+let g:deoplete#sources#go#use_cache  = 0
+
+" deopete-tern
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+  \]
+
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
+
+autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:UltiSnipsExpandTrigger="<C-j>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" neosnippet
+let g:neosnippet#enable_completed_snippet = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " chromatica
-let g:chromatica#libclang_path = $CLANG_LIB
-let g:chromatica#enable_at_startup=1
+let g:chromatica#libclang_path     = $CLANG_LIB
+let g:chromatica#enable_at_startup = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " neomake
@@ -69,10 +91,10 @@ nnoremap <leader>m :Neomake<CR>
 let g:neomake_open_list = 4
 
 " neomake clang
-let g:neomake_c_enable_markers=['clang']
-let g:neomake_c_clang_args = ["-Weverything"]
-let g:neomake_cpp_enable_markers=['clang']
-let g:neomake_cpp_clang_args = ["-std=c++1z", "-Weverything", "-Wno-c++98-compat"]
+let g:neomake_c_enable_markers   = ['clang']
+let g:neomake_c_clang_args       = ["-Weverything"]
+let g:neomake_cpp_enable_markers = ['clang']
+let g:neomake_cpp_clang_args     = ["-std=c++1z", "-Weverything", "-Wno-c++98-compat"]
 
 " neomake javascript
 let g:neomake_javascript_jscs_maker = {
@@ -93,8 +115,8 @@ let g:fzf_action = {
 
 let g:fzf_layout = { 'down': '~30%' }
 
-let g:fzf_colors =
-  \ { 'fg':    ['fg', 'Normal'],
+let g:fzf_colors = { 
+  \ 'fg':    ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
   \ 'hl':      ['fg', 'Comment'],
   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
@@ -265,3 +287,4 @@ au FileType go nmap <Leader>rs <Plug>(go-run-split)
 au FileType go nmap <Leader>rv <Plug>(go-run-vertical)
 
 let g:go_fmt_command = "goimports"
+let g:go_def_mode = 'guru'

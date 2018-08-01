@@ -39,22 +39,33 @@ Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 Plug 'neomake/neomake'
 
 " Autocomplete
+Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/neoinclude.vim'
+
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-clang'
 Plug 'zchee/deoplete-zsh'
+Plug 'ponko2/deoplete-fish'
 Plug 'zchee/deoplete-jedi'
-Plug 'zchee/deoplete-go', { 'do': 'make' }
+Plug 'zchee/deoplete-go', { 'do': 'make', 'for': ['go'] }
 Plug 'padawan-php/deoplete-padawan', { 'do': 'composer install' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
+
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'wokalski/autocomplete-flow', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Goto
 Plug 'JCLiang/vim-cscope-utils' "too slow
 
 " Snippets
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Language Specific Supports

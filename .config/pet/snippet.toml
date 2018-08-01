@@ -132,3 +132,8 @@
   description = "awk get diff with previous line"
   command = "awk '{print $16}' | awk 'NR == 1 {old=$1; next}{print $1 - old; old = $1}'"
   output = ""
+
+[[snippets]]
+  description = "jq with consul service filtering"
+  command = "jq -c '.[] | select(.Service|contains(\"test1-keyolk\"))'"
+  output = ""
