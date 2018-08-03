@@ -12,6 +12,7 @@ alias vi=vi
 alias vim=nvim
 alias grep='grep --color=always'
 alias less='less -R'
+alias watch='watch --color'
 alias ssh='/usr/bin/ssh -F ~/.ssh/config'
 
 ## common environment
