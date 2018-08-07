@@ -35,6 +35,7 @@ set shiftwidth=2
 " whitespace
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set nolist
+set eol
 
 " set leader
 let mapleader=","

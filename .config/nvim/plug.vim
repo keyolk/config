@@ -63,7 +63,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Goto
-Plug 'JCLiang/vim-cscope-utils' "too slow
+"Plug 'JCLiang/vim-cscope-utils' "too slow
 
 " Snippets
 Plug 'honza/vim-snippets'
