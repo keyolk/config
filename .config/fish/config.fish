@@ -14,6 +14,7 @@ alias grep='grep --color=always'
 alias less='less -R'
 alias watch='watch --color'
 alias ssh='/usr/bin/ssh -F ~/.ssh/config'
+alias fzf='/usr/sbin/fzf --ansi'
 
 ## common environment
 set -x EDITOR /usr/bin/nvim
@@ -26,7 +27,7 @@ set -x GOPATH (readlink -f $HOME/work/gopath)
 set -x GIT_TERMINAL_PROMPT 1
 
 ## PATH
-set -U PATH $HOME/.local/bin $GOPATH/bin (gem environment gempath | cut -d: -f1)/bin $PATH
+set fish_user_paths $fish_user_paths $HOME/.local/bin $GOPATH/bin (gem environment gempath | cut -d: -f1)/bin
 
 # locale
 set -x LC_ALL en_US.UTF-8
