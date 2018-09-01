@@ -63,7 +63,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Goto
-Plug 'JCLiang/vim-cscope-utils' "too slow
+Plug 'JCLiang/vim-cscope-utils', { 'for': ['c', 'cpp', 'php'] } "too slow
 
 " Snippets
 Plug 'honza/vim-snippets'
@@ -71,6 +71,7 @@ Plug 'honza/vim-snippets'
 " Language Specific Supports
 Plug 'fatih/vim-go'
 Plug 'jodosha/vim-godebug'
+Plug 'beanworks/vim-phpfmt', { 'for': ['php'] }
 
 " Highlight
 Plug 'hashivim/vim-vagrant'
