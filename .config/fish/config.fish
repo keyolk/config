@@ -31,9 +31,7 @@ set -x GOPATH (readlink -f $HOME/work/gopath)
 set -x GIT_TERMINAL_PROMPT 1
 set -x FZF_DEFAULT_OPTS "--bind='ctrl-o:execute(code {})+abort'"
 
-<<<<<<< HEAD
 set -U fish_user_paths $fish_user_paths $HOME/.local/bin $GOPATH/bin (gem environment gempath | cut -d: -f1)/bin
->>>>>>> 7dadff2a034fbc47b4dea4852815450f220872f7
 
 # locale
 set -x LC_ALL en_US.UTF-8
