@@ -18,3 +18,5 @@
 	helper = cache --timeout 7200
 [color]
 	ui = always
+[gpg]
+	program = gpg

@@ -27,7 +27,7 @@ set -x GOPATH (readlink -f $HOME/work/gopath)
 set -x GIT_TERMINAL_PROMPT 1
 
 ## PATH
-set fish_user_paths $fish_user_paths $HOME/.local/bin $GOPATH/bin (gem environment gempath | cut -d: -f1)/bin
+set fish_user_paths $PATH $HOME/.local/bin $GOPATH/bin (gem environment gempath | cut -d: -f1)/bin
 
 # locale
 set -x LC_ALL en_US.UTF-8
