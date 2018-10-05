@@ -10,12 +10,13 @@
 	editor = nvim
 	pager = less -R
 
-[diff]
-  tool = default-difftool
-[difftool "default-difftool"]
-  cmd = nvim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' $LOCAL $REMOTE '+syntax off'
+[pager]
+       diff = diff-so-fancy | less --tabs=1,5 -RFX
+       show = diff-so-fancy | less --tabs=1,5 -RFX
+
 [credential]
 	helper = cache --timeout 7200
+
 [color]
 	ui = always
 [gpg]
