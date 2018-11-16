@@ -137,3 +137,8 @@
   description = "jq with consul service filtering"
   command = "jq -c '.[] | select(.Service|contains(\"test1-keyolk\"))'"
   output = ""
+
+[[snippets]]
+  description = "tail with timestamp"
+  command = "tail -f crontabui-stdout.log | awk '{now=strftime(\"%F %T%z\\t\");sub(/^/, now);print}'"
+  output = ""

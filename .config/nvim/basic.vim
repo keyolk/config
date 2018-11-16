@@ -32,6 +32,9 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
+" show asicc code of current cursor
+set statusline=%<%f%h%m%r%=%b\ 0x%B\ \ %l,%c%V\ %P
+
 " whitespace
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set nolist
