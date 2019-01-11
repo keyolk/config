@@ -142,3 +142,13 @@
   description = "tail with timestamp"
   command = "tail -f crontabui-stdout.log | awk '{now=strftime(\"%F %T%z\\t\");sub(/^/, now);print}'"
   output = ""
+
+[[snippets]]
+  description = "sed with regex group capture"
+  command = "sed -r 'N;N;s/(.*)\\n.*CPU: (.*) Mem: (.*).*\\/.*\\n.*CPU: (.*) Mem: (.*).*\\/.*/\\1\\t|\\t\\2 \\3\\t\\t|\\t\\4 \\5/g'"
+  output = ""
+
+[[snippets]]
+  description = "dump http header from 21481 port"
+  command = "tcpdump -A -s 10240 'tcp port 21481 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)' | egrep --line-buffered \"^........(GET |HTTP\\/|POST |HEAD )|^[A-Za-z0-9-]+: \" | sed -r 's/^........(GET |HTTP\\/|POST |HEAD )/\\n\\1/g'"
+  output = ""

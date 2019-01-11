@@ -10,10 +10,6 @@
 	editor = nvim
 	pager = less -R
 
-[pager]
-       diff = diff-so-fancy | less --tabs=1,5 -RFX
-       show = diff-so-fancy | less --tabs=1,5 -RFX
-
 [credential]
 	helper = cache --timeout 7200
 
@@ -21,3 +17,7 @@
 	ui = always
 [gpg]
 	program = gpg
+[github]
+	user = keyolk
+[ghi]
+	token = fd1fe0b31d7263743c72c8e8995b034d5ad4a93b
