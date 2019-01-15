@@ -8,17 +8,17 @@ set fish_greeting ""
 fish_vi_key_bindings
 
 ## aliases
-alias vi=vi
-alias vim=nvim
-alias grep='grep --color=always'
-alias less='less -R'
-alias watch='watch --color'
-alias ssh='/usr/bin/ssh -F ~/.ssh/config'
-alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
-alias help='tldr'
-alias preview="fzf --preview 'bat --color \"always\" {}'"
-alias cat='bat'
-alias fzf='/usr/sbin/fzf --ansi'
+#alias vi=vi
+#alias vim=nvim
+#alias grep='grep --color=always'
+#alias less='less -R'
+#alikas watch='watch --color'
+#alias ssh='/usr/bin/ssh -F ~/.ssh/config'
+#alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+#alias help='tldr'
+#alias preview="fzf --preview 'bat --color \"always\" {}'"
+#alias cat='bat'
+#alias fzf='/usr/sbin/fzf --ansi'
 
 ## common environment
 set -x EDITOR /usr/bin/nvim
