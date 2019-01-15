@@ -6,10 +6,12 @@ fisherman/get
 fisherman/getopts
 fisherman/git_util
 fisherman/host_info
-fisherman/humanize_duration
-fisherman/last_job_id
+fishpkg/fish-humanize-duration
+fishpkg/fish-last-job-id
 otms61/fish-pet
 fisherman/pwd_info
 fisherman/pwd_is_home
 keyolk/simple
 fisherman/z
+fishpkg/fish-humanize-duration
+fishpkg/fish-last-job-id
