@@ -1,7 +1,16 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" molokai
+" colorscheme
 "
-colorscheme molokai
+highlight normal      ctermbg=none
+highlight statement   ctermbg=none
+highlight title       ctermbg=none
+highlight todo        ctermbg=none
+highlight underlined  ctermbg=none
+highlight errormsg    ctermbg=none
+highlight linenr      ctermbg=none
+highlight visual      cterm=reverse ctermbg=NONE
+
+set background=dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimwiki
@@ -9,6 +18,7 @@ colorscheme molokai
 let g:vimwiki_list = [{'path': '~/wiki/', 
 \   'syntax': 'markdown', 
 \   'ext': '.md'}]
+let g:vimwiki_hl_headers = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nerdtree

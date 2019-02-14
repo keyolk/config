@@ -1,0 +1,18 @@
+[ui]
+username = Chanhun Jeong <keyolk@gmail.com>
+
+[extensions]
+hgext.patchbomb =
+mbox = 
+hgext.mq = 
+
+[email]
+method = smtp
+
+[mbox]
+mbox.tb.path = 
+mbox.mutt.path =
+imap.g.server = imap.gmail.com
+imap.g.username = keyolk
+imap.g.password = 
+imap.g.mailbox = 

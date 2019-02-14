@@ -32,7 +32,7 @@ set -x GIT_TERMINAL_PROMPT 1
 set -x FZF_DEFAULT_OPTS "--bind='ctrl-o:execute(code {})+abort'"
 
 ## PATH
-set -U fish_user_paths $PATH $HOME/.local/bin $GOPATH/bin (gem environment gempath | cut -d: -f1)/bin
+set -U fish_user_paths $PATH $HOME/.local/bin $GOPATH/bin (gem environment gempath | cut -d: -f1)/bin /usr/share/bcc/tools
 
 # locale
 set -x LC_ALL en_US.UTF-8

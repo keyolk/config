@@ -1,17 +1,8 @@
 " colorscheme
-highlight normal      ctermbg=none
-highlight statement   ctermbg=none
-highlight title       ctermbg=none
-highlight todo        ctermbg=none
-highlight underlined  ctermbg=none
-highlight errormsg    ctermbg=none
-highlight linenr      ctermbg=none
-highlight visual      ctermbg=100
 
 set smartcase
 set mouse=a
 set splitbelow
-set bg=dark
 
 set signcolumn=yes
 set encoding=utf-8
@@ -55,18 +46,23 @@ fun! DeleteFileAndCloseBuffer()
 endfun
 
 " window contror
-nnoremap <A-h> <C-w><
-nnoremap <A-j> <C-w>-
-nnoremap <A-k> <C-w>+
-nnoremap <A-l> <C-w>>
+nnoremap <A-h> 10<C-w><
+nnoremap <A-j> 10<C-w>-
+nnoremap <A-k> 10<C-w>+
+nnoremap <A-l> 10<C-w>>
 
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
-nnoremap <C-q> :q<CR>
-nnoremap <C-r> <C-w>r
+nnoremap <leader>q :q<CR>
+nnoremap <leader>wr <C-w>r
+nnoremap <leader>wh <C-w>H
+nnoremap <leader>wv <C-w>J
+
+nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>s :split<CR>
 
 " buffer control
 nnoremap <S-h> :bprev<CR>
@@ -99,7 +95,7 @@ function! NumberToggle()
     endif
 endfunction
 
-" Relative or absolute number lines
+" Set or Unset list
 nnoremap <F6> :call ListToggle()<CR>
 function! ListToggle()
     if(&list == 1)
@@ -108,3 +104,28 @@ function! ListToggle()
         set list
     endif
 endfunction
+
+" Zoom / Restore window.
+function! s:ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+        execute t:zoom_winrestcmd
+        let t:zoomed = 0
+    else
+        let t:zoom_winrestcmd = winrestcmd()
+        resize
+        vertical resize
+        let t:zoomed = 1
+    endif
+endfunction
+command! ZoomToggle call s:ZoomToggle()
+nnoremap <leader>z :ZoomToggle<CR>
+
+" Wrap / No wrap toggle
+function! AutoWrapToggle()
+  if &formatoptions =~ 't'
+    set fo-=t
+  else
+    set fo+=t
+  endif
+endfunction
+nnoremap <leader>w :call AutoWrapToggle()<CR>
