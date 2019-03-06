@@ -39,6 +39,10 @@ Plug 'fidian/hexmode'
 " Linting
 Plug 'neomake/neomake'
 
+" Goto
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
+
 " Autocomplete
 Plug 'ervandew/supertab'
 Plug 'jiangmiao/auto-pairs'
@@ -50,6 +54,7 @@ Plug 'zchee/deoplete-clang'
 Plug 'zchee/deoplete-zsh'
 Plug 'ponko2/deoplete-fish'
 Plug 'zchee/deoplete-jedi'
+Plug 'sebastianmarkow/deoplete-rust'
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': ['go'] }
 Plug 'padawan-php/deoplete-padawan', { 'do': 'composer install' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
@@ -62,22 +67,18 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-
-" Goto
-Plug 'JCLiang/vim-cscope-utils', { 'for': ['c', 'cpp', 'php'] } "too slow
-
-" Snippets
 Plug 'honza/vim-snippets'
-
-" Language Specific Supports
-Plug 'fatih/vim-go'
-Plug 'jodosha/vim-godebug'
-Plug 'beanworks/vim-phpfmt', { 'for': ['php'] }
 
 " Highlight
 Plug 'hashivim/vim-vagrant'
 Plug 'dag/vim-fish'
 Plug 'arakashic/chromatica.nvim'
 Plug 'posva/vim-vue'
+
+" Language Specific Supports
+Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
+Plug 'jodosha/vim-godebug'
+Plug 'beanworks/vim-phpfmt', { 'for': ['php'] }
 
 call plug#end()

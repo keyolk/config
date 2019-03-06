@@ -67,7 +67,7 @@ nnoremap <leader>s :split<CR>
 " buffer control
 nnoremap <S-h> :bprev<CR>
 nnoremap <S-l> :bnext<CR>
-noremap <S-q> :bp <BAR> bd #<CR>
+nnoremap <S-q> :bp <BAR> bd #<CR>
 
 " tab control
 "nnoremap <C-A-h> :bprev<CR>

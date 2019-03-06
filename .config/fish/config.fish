@@ -19,6 +19,7 @@ alias help='tldr'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias cat='bat'
 alias fzf='/usr/sbin/fzf --ansi'
+alias trans='trans :kor'
 
 ## common environment
 set -x EDITOR /usr/bin/nvim

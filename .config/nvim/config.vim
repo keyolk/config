@@ -50,6 +50,21 @@ let g:airline#extensions#tabline#switch_buffers_and_tabs  = 0
 nnoremap <F4> :GitGutterToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-fugitive
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gL :exe ':!cd ' . expand('%:p:h') . '; git la'<CR>
+nnoremap <Leader>gl :exe ':!cd ' . expand('%:p:h') . '; git las'<CR>
+nnoremap <Leader>gh :Silent Glog<CR>
+nnoremap <Leader>gH :Silent Glog<CR>:set nofoldenable<CR>
+nnoremap <Leader>gr :Gread<CR>
+nnoremap <Leader>gw :Gwrite<CR>
+nnoremap <Leader>gp :Git push<CR>
+nnoremap <Leader>g- :Silent Git stash<CR>:e<CR>
+nnoremap <Leader>g+ :Silent Git stash pop<CR>:e<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " indentLine
 nnoremap <leader>i :IndentLinesToggle<CR>
 let g:indentLine_color_term = 239
@@ -74,6 +89,10 @@ let g:deoplete#sources#clang#clang_header  = $CLANG_INCLUDE
 " deoplete-go
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:deoplete#sources#go#use_cache  = 0
+
+" deoplte-rust
+let g:deoplete#sources#rust#racer_binary = "/usr/sbin/racer"
+let g:deoplete#sources#rust#rust_source_path = "/lib/rustlib/src/rust/src"
 
 " deopete-tern
 let g:deoplete#omni#functions = {}
@@ -303,3 +322,8 @@ au FileType go nmap <Leader>rv <Plug>(go-run-vertical)
 
 let g:go_fmt_command = "goimports"
 let g:go_def_mode = 'guru'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" rust.vim
+let g:rustfmt_command = 'rustfmt'
+let g:rustfmt_autosave = 1

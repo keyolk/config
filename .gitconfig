@@ -3,9 +3,15 @@
   name = keyolk
 
 [alias]
-  pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+  pr       = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
   pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
-    
+  la       = "log --oneline --all --decorate --graph"
+  las      = "!git --no-pager log --oneline --all --decorate --graph -40"
+  lass     = "!git --no-pager log --oneline --all --decorate --graph -10"
+  lb       = "log --oneline --decorate --graph"
+  lbs      = "!git --no-pager log --oneline --decorate --graph -40"
+  lbss     = "!git --no-pager log --oneline --decorate --graph -10"
+   
 [core]
 	editor = nvim
 	pager = less -R
