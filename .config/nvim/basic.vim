@@ -1,1 +1,1 @@
-/home/irteam/.vimrc
+../../.vimrc
