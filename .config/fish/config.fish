@@ -22,11 +22,11 @@ alias fzf='/usr/sbin/fzf --ansi'
 alias trans='trans :kor'
 
 ## common environment
-set -x EDITOR /usr/bin/nvim
-set -x BROWSER /user/bin/chromium
-set -x FISH /usr/bin/fish
-set -x CLANG_HOME /usr/lib/clang/latest
-set -x CLANG_LIB /usr/lib/libclang.so
+set -x EDITOR (which nvim)
+set -x BROWSER (which chromium)
+set -x FISH (which fish)
+set -x CLANG_HOME /data/data/com.termux/files/usr/lib/clang/7.0.1
+set -x CLANG_LIB /data/data/com.termux/files/usr/lib/libclang.so
 set -x CLANG_INCLUDE $CLANG_HOME/include 
 set -x GOPATH $HOME/go
 set -x GIT_TERMINAL_PROMPT 1
