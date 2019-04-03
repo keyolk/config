@@ -18,13 +18,13 @@ alias watch='watch --color'
 alias help='tldr'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias cat='bat'
-alias fzf='/usr/sbin/fzf --ansi'
+alias fzf='fzf --ansi'
 alias trans='trans :kor'
 
 ## common environment
-set -x EDITOR (which nvim)
-set -x BROWSER (which chromium)
-set -x FISH (which fish)
+set -x EDITOR nvim
+set -x BROWSER chromium
+set -x FISH fish
 set -x CLANG_HOME /data/data/com.termux/files/usr/lib/clang/7.0.1
 set -x CLANG_LIB /data/data/com.termux/files/usr/lib/libclang.so
 set -x CLANG_INCLUDE $CLANG_HOME/include 
