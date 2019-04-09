@@ -22,6 +22,7 @@ alias fzf='fzf --ansi'
 alias trans='trans :kor'
 
 ## common environment
+set -x SHELL /data/data/com.termux/files/usr/bin/fish
 set -x EDITOR nvim
 set -x BROWSER chromium
 set -x FISH fish
@@ -31,6 +32,12 @@ set -x CLANG_INCLUDE $CLANG_HOME/include
 set -x GOPATH $HOME/go
 set -x GIT_TERMINAL_PROMPT 1
 set -x FZF_DEFAULT_OPTS "--bind='ctrl-o:execute(code {})+abort'"
+
+## termux specific
+set -x X_CFLAGS "-I/data/data/com.termux/files/usr/include -D_REENTRANT"
+set -x X_LIBS "-Wl,-R/data/data/com.termux/files/usr/lib -lX11"
+set -x DISPLAY localhost:0
+set -x PULSE_SERVER localhost:4712
 
 ## PATH
 set -U fish_user_paths $PATH $HOME/.local/bin $GOPATH/bin (gem environment gempath | cut -d: -f1)/bin /usr/share/bcc/tools

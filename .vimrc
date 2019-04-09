@@ -83,6 +83,9 @@ set pastetoggle=<F2>
 " clipboard
 set clipboard+=unnamedplus
 
+" netrw
+let g:netrw_banner = 0
+
 " Relative or absolute number lines
 nnoremap <F3> :call NumberToggle()<CR>
 function! NumberToggle()
