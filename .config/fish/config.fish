@@ -24,16 +24,22 @@ alias fzf='/usr/sbin/fzf --ansi'
 set -x EDITOR /usr/bin/nvim
 set -x BROWSER /user/bin/chromium
 set -x FISH /usr/bin/fish
-set -x CLANG_HOME /usr/lib/clang/latest
-set -x CLANG_LIB /usr/lib/libclang.so
-set -x CLANG_INCLUDE $CLANG_HOME/include 
-set -x GOPATH $HOME/go
+#set -x CLANG_HOME /usr/lib/clang/latest
+#set -x CLANG_LIB /usr/lib/libclang.so
+#set -x CLANG_INCLUDE $CLANG_HOME/include 
+#set -x GOPATH $HOME/go
 set -x GIT_TERMINAL_PROMPT 1
-set -x FZF_DEFAULT_OPTS "--bind='ctrl-o:execute(code {})+abort'"
+
+set -gx FZF_DEFAULT_OPTS "--bind='ctrl-o:execute(code {})+abort'"
+set -gx FZF_DEFAULT_COMMAND  'rg --files --no-ignore-vcs --hidden'
 
 ## PATH
-set -U fish_user_paths $PATH $HOME/.local/bin $GOPATH/bin (gem environment gempath | cut -d: -f1)/bin
+set -U fish_user_paths $PATH $HOME/.local/bin $GOPATH/bin
 
 # locale
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
+
+for file in (ls $HOME/.local/profile/*.fish)
+  source $file
+end
