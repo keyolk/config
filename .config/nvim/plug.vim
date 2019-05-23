@@ -39,6 +39,7 @@ Plug 'tpope/vim-eunuch'
 
 " Linting
 Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }} " Coc intellisense engine
 
 " Tagging
 Plug 'ludovicchabant/vim-gutentags'
@@ -63,6 +64,8 @@ Plug 'Shougo/context_filetype.vim'
 " Language Specific Supports
 Plug 'fatih/vim-go', { 'for': ['go'] }
 Plug 'jodosha/vim-godebug', { 'for': ['go'] }
+Plug 'rust-lang/rust.vim', { 'for': ['rust'] }
+Plug 'racer-rust/vim-racer'
 "Plug 'beanworks/vim-phpfmt', { 'for': ['php'] }
 "Plug 'z0mbix/vim-shfmt', { 'for': ['sh', 'bash', 'fish']}
 "Plug 'dag/vim-fish', { 'for': ['fish'] }

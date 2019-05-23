@@ -17,6 +17,7 @@ set encoding=utf-8
 set noswapfile
 set updatetime=750
 set autochdir
+set incsearch
 
 " window related
 set winheight=30
@@ -47,10 +48,10 @@ endfun
 nnoremap <C-s> :w!<CR>
 
 " window contror
-nnoremap <A-h> 5<C-w><
-nnoremap <A-j> 5<C-w>-
-nnoremap <A-k> 5<C-w>+
-nnoremap <A-l> 5<C-w>>
+nnoremap <A-S-h> 5<C-w><
+nnoremap <A-S-j> 5<C-w>-
+nnoremap <A-S-k> 5<C-w>+
+nnoremap <A-S-l> 5<C-w>>
 
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
@@ -135,3 +136,14 @@ function! ListToggle()
         set list
     endif
 endfunction
+
+" completion
+set completeopt=menu,menuone,preview,noselect,noinsert
+
+" splits
+nnoremap <leader>s :split<CR>
+nnoremap <leader>x :vsplit<CR>
+
+" mark
+"nnoremap <C-k> mxO<esc>`x
+"nnoremap <C-j> mxo<esc>`x
