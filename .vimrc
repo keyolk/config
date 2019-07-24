@@ -18,6 +18,7 @@ set noswapfile
 set updatetime=750
 set autochdir
 set incsearch
+set mmp=5000
 
 " window related
 set winheight=30
@@ -73,8 +74,8 @@ nnoremap <C-A-l> :bnext<CR>
 
 " netrw related
 let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_winsize = 10
+"let g:netrw_liststyle = 3
+"let g:netrw_winsize = 10
 let g:NetrwIsOpen=0
 autocmd FileType netrw setl bufhidden=delete
 
@@ -137,10 +138,24 @@ function! ListToggle()
     endif
 endfunction
 
+" Zoom / Restore window.
+function! s:ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+      let t:zoomed = 0
+      tabclose
+    else
+      tabedit %
+      let t:zoomed = 1
+    endif
+endfunction
+command! ZoomToggle call s:ZoomToggle()
+nnoremap <silent> <leader>.z :ZoomToggle<CR>
+
 " completion
 set completeopt=menu,menuone,preview,noselect,noinsert
 
 " splits
+set splitbelow!
 nnoremap <leader>s :split<CR>
 nnoremap <leader>x :vsplit<CR>
 

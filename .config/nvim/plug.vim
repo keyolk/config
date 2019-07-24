@@ -9,6 +9,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'majutsushi/tagbar'
 Plug 'farmergreg/vim-lastplace'
 Plug 'dhruvasagar/vim-zoom'
+Plug 'airblade/vim-rooter'
+Plug 'tpope/vim-vinegar'
+Plug 'melonmanchan/vim-tmux-resizer'
 
 " Editing
 Plug 'Yggdroot/indentLine'
