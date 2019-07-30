@@ -157,3 +157,8 @@
   description = "xpane to all docker node"
   command = "xpanes -c \"ssh irteamsu@{}\" (docker node ls --format '{{.Hostname}}')"
   output = ""
+
+[[snippets]]
+  description = "make stat using awk and sort, uniq"
+  command = "zcat access.gz  | awk '{split($8, a, \"/\"); print substr($5,14,2), a[2]}' | sort | uniq -c"
+  output = ""
