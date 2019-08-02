@@ -162,3 +162,18 @@
   description = "make stat using awk and sort, uniq"
   command = "zcat access.gz  | awk '{split($8, a, \"/\"); print substr($5,14,2), a[2]}' | sort | uniq -c"
   output = ""
+
+[[snippets]]
+  description = "tcpdump HTTP GET"
+  command = "tcpdump -nn -A -X -i any -c 100 -s 1500 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x47455420'"
+  output = ""
+
+[[snippets]]
+  description = "tcpdump HTTP POST"
+  command = "tcpdump -nn -A -X -i any -c 100 -s 1500 'tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504f5354'"
+  output = ""
+
+[[snippets]]
+  description = "tcpdump HTTP request/response"
+  command = "tcpdump -nn -A -X -i any -c 100 -s 1500 '((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0'"
+  output = ""
