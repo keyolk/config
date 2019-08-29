@@ -18,6 +18,8 @@ set noswapfile
 set updatetime=750
 set autochdir
 set incsearch
+set shortmess+=c
+set cmdheight=2
 
 " window related
 set winheight=30
