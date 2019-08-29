@@ -20,6 +20,7 @@ set autochdir
 set incsearch
 set shortmess+=c
 set cmdheight=2
+set mmp=5000
 
 " window related
 set winheight=30
@@ -41,7 +42,7 @@ let mapleader=","
 nnoremap <leader>r :source $MYVIMRC<CR>
 
 " file control
-nnoremap <Leader>d. :call DeleteFileAndCloseBuffer()<CR>
+nnoremap <Leader>d :call DeleteFileAndCloseBuffer()<CR>
 fun! DeleteFileAndCloseBuffer()
   let choice = confirm("Delete file and close buffer?", "&Do it!\n&Nonono", 1)
   if choice == 1 | call delete(expand('%:p')) | q! | endif
@@ -75,8 +76,8 @@ nnoremap <C-A-l> :bnext<CR>
 
 " netrw related
 let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_winsize = 10
+"let g:netrw_liststyle = 3
+"let g:netrw_winsize = 10
 let g:NetrwIsOpen=0
 autocmd FileType netrw setl bufhidden=delete
 
@@ -139,10 +140,24 @@ function! ListToggle()
     endif
 endfunction
 
+" Zoom / Restore window.
+function! s:ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+      let t:zoomed = 0
+      tabclose
+    else
+      tabedit %
+      let t:zoomed = 1
+    endif
+endfunction
+command! ZoomToggle call s:ZoomToggle()
+nnoremap <silent> <leader>.z :ZoomToggle<CR>
+
 " completion
 set completeopt=menu,menuone,preview,noselect,noinsert
 
 " splits
+set splitbelow!
 nnoremap <leader>s :split<CR>
 nnoremap <leader>x :vsplit<CR>
 

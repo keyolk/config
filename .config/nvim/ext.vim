@@ -77,6 +77,7 @@ nnoremap <C-z> :call zoom#toggle()<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter
 map <leader>.g :GitGutterToggle<CR>
+let g:gitgutter_diff_base = 'HEAD'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-airline

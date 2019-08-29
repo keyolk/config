@@ -1,4 +1,3 @@
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " gutentags
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
@@ -8,46 +7,6 @@ let g:gutentags_cache_dir = '~/.cache/gutentags'
 let g:gutentags_cache_dir = expand('~/.cache/tags')
 let g:gutentags_plus_switch = 1
 "call add(g:gutentags_project_info, {'type': 'rust', 'file': 'Cargo.toml'})
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" deoplete
-"set completeopt=longest,menuone,preview
-"
-"let g:deoplete#enable_at_startup         = 1
-"let g:deoplete#auto_complete_start_lengh = 1
-"
-"" deoplete-clang
-"let g:deoplete#sources#clang#libclang_path = $CLANG_LIB
-"let g:deoplete#sources#clang#clang_header  = $CLANG_INCLUDE
-"
-"" deoplete-go
-"let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-"let g:deoplete#sources#go#use_cache  = 0
-"
-"" deopete-tern
-"let g:deoplete#omni#functions = {}
-"let g:deoplete#omni#functions.javascript = [
-"  \ 'tern#Complete',
-"  \ 'jspc#omni'
-"  \]
-"
-"let g:deoplete#sources = {}
-"let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
-"let g:tern#command = ['tern']
-"let g:tern#arguments = ['--persistent']
-"
-"autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-"let g:UltiSnipsExpandTrigger="<C-j>"
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" neosnippet
-"let g:neosnippet#enable_completed_snippet = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" chromatica
-"let g:chromatica#libclang_path     = $CLANG_LIB
-"let g:chromatica#enable_at_startup = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ale
@@ -144,7 +103,6 @@ if !exists('g:tagbar_type_rust')
        \ ]
    \ }
 endif
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-go
