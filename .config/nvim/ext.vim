@@ -5,12 +5,12 @@ nmap <leader>fg :GFiles<CR>
 nmap <leader>fr :Rg 
 nmap <leader>fh :History<CR>
 
-nmap <leader>fb<CR> :Buffers<CR>
+nmap <leader>fb :Buffers<CR>
 nmap <leader>fw :Windows<CR>
 nmap <leader>ft :Tags<CR>
-"nmap <leader>ft :Filetypes<CR>
+nmap <leader>fts :Filetypes<CR>
 nmap <leader>fl :Lines<CR>
-"nmap <leader>fh :Helptags<CR>
+nmap <leader>fht :Helptags<CR>
 nmap <leader>fm :Maps<CR>
 
 nmap <leader>fcm :Commands<CR>
@@ -59,6 +59,7 @@ xmap ga <Plug>(EasyAlign)
 map <leader>si ysiw
 map <leader>sc cs
 map <leader>sd ds
+vmap <leader>s S
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " indentLine

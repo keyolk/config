@@ -164,3 +164,8 @@ nnoremap <leader>x :vsplit<CR>
 " mark
 "nnoremap <C-k> mxO<esc>`x
 "nnoremap <C-j> mxo<esc>`x
+"
+aug QFClose
+  au!
+  au WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
+aug END
