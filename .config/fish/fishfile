@@ -1,17 +1,7 @@
-# https://gist.github.com/pwwang/5ad96bbfb034a91af851c411f0b12a23
-fisherman/await
-barnybug/docker-fish-completion
-fisherman/fzf
-fisherman/get
-fisherman/getopts
-fisherman/git_util
-fisherman/host_info
+jethrokuan/fzf
+jethrokuan/z
+fishpkg/fish-git-util
 fishpkg/fish-humanize-duration
 fishpkg/fish-last-job-id
 otms61/fish-pet
-fisherman/pwd_info
-fisherman/pwd_is_home
 keyolk/simple
-fisherman/z
-fishpkg/fish-humanize-duration
-fishpkg/fish-last-job-id
