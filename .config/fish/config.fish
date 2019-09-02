@@ -21,6 +21,7 @@ alias cat='bat'
 alias fzf='/usr/sbin/fzf --ansi'
 
 ## common environment
+set -x SHELL /usr/bin/fish
 set -x EDITOR /usr/bin/nvim
 set -x BROWSER /user/bin/chromium
 set -x FISH /usr/bin/fish
@@ -29,6 +30,7 @@ set -x FISH /usr/bin/fish
 #set -x CLANG_INCLUDE $CLANG_HOME/include 
 #set -x GOPATH $HOME/go
 set -x GIT_TERMINAL_PROMPT 1
+set -x GO111MODULE on
 
 set -gx FZF_DEFAULT_OPTS "--bind='ctrl-o:execute(code {})+abort'"
 set -gx FZF_DEFAULT_COMMAND  'rg --files --no-ignore-vcs --hidden'
