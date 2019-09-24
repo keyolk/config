@@ -46,8 +46,8 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }} " Coc intellisense e
 Plug 'tpope/vim-eunuch'
 
 " Tagging
-"Plug 'ludovicchabant/vim-gutentags'
-"Plug 'skywind3000/gutentags_plus'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
 
 " Autocomplete
 Plug 'Shougo/context_filetype.vim'

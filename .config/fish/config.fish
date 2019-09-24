@@ -27,6 +27,7 @@ alias jq='$HOME/prefix/usr/bin/jq'
 alias gpg='$HOME/prefix/usr/bin/gpg'
 alias gpg2='$HOME/prefix/usr/bin/gpg'
 alias git='$HOME/prefix/usr/bin/git'
+alias makeinfo='$HOME/prefix/usr/bin/makeinfo'
 
 ## common environment
 set -x SHELL fish
