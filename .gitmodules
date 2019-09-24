@@ -4,6 +4,6 @@
 [submodule ".config/fish/functions/fisherman"]
 	path = .config/fish/functions/fisherman
 	url = https://github.com/fisherman/fisherman
-[submodule ".config/nvim/autoload/vim-plug"]
-	path = .config/nvim/autoload/vim-plug
-	url = https://github.com/junegunn/vim-plug
+[submodule ".vim/autoload/vim-plug"]
+	path = .vim/autoload/vim-plug
+	url = https://github.com/junegunn/vim-plug.git

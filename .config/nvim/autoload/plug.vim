@@ -1,1 +1,0 @@
-/naver/work/keyolk/.vim/autoload/vim-plug/plug.vim

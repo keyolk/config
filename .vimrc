@@ -28,6 +28,18 @@ set secure
 " window related
 set winheight=30
 set splitbelow
+set splitright
+
+set hlsearch
+set incsearch
+set cpoptions+=x
+
+set noshowmode
+set noshowcmd
+
+set noerrorbells
+set visualbell
+set t_vb=
 
 " indentation related
 set expandtab
@@ -37,6 +49,7 @@ set shiftwidth=2
 
 " show asicc code of current cursor
 set statusline=%<%f%h%m%r%=%b\ 0x%B\ \ %l,%c%V\ %P
+set laststatus=2
 
 " set leader
 let mapleader=","
@@ -172,6 +185,12 @@ aug QFClose
   au!
   au WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
 aug END
+
+augroup EditVim
+  autocmd!
+  autocmd BufWritePost .vimrc source $MYVIMRC
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
 
 source $HOME/.vim/plug.vim
 source $HOME/.vim/ext.vim

@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 " Fuzzy Finding
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+Plug 'junegunn/fzf', {'dir': '~/.fzf'}
 Plug 'junegunn/fzf.vim'
 
 " Navigation
@@ -11,6 +11,7 @@ Plug 'dhruvasagar/vim-zoom'
 Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-vinegar'
 Plug 'melonmanchan/vim-tmux-resizer'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Editing
 Plug 'Yggdroot/indentLine'
@@ -42,7 +43,6 @@ Plug 'tpope/vim-eunuch'
 " Linting
 Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }} " Coc intellisense engine
-
 Plug 'tpope/vim-eunuch'
 
 " Tagging
