@@ -22,6 +22,9 @@ set shortmess+=c
 set cmdheight=2
 set mmp=5000
 
+set exrc
+set secure
+
 " window related
 set winheight=30
 set splitbelow
@@ -169,3 +172,7 @@ aug QFClose
   au!
   au WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
 aug END
+
+source $HOME/.vim/plug.vim
+source $HOME/.vim/ext.vim
+source $HOME/.vim/lang.vim

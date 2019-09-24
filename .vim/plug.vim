@@ -5,7 +5,6 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 
 " Navigation
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'majutsushi/tagbar'
 Plug 'farmergreg/vim-lastplace'
 Plug 'dhruvasagar/vim-zoom'
@@ -44,9 +43,11 @@ Plug 'tpope/vim-eunuch'
 Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }} " Coc intellisense engine
 
+Plug 'tpope/vim-eunuch'
+
 " Tagging
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/gutentags_plus'
+"Plug 'ludovicchabant/vim-gutentags'
+"Plug 'skywind3000/gutentags_plus'
 
 " Autocomplete
 Plug 'Shougo/context_filetype.vim'
@@ -55,6 +56,6 @@ Plug 'Shougo/context_filetype.vim'
 Plug 'fatih/vim-go', { 'for': ['go'] }
 Plug 'jodosha/vim-godebug', { 'for': ['go'] }
 Plug 'rust-lang/rust.vim', { 'for': ['rust'] }
-Plug 'racer-rust/vim-racer'
+Plug 'racer-rust/vim-racer', { 'for': ['rust'] }
 
 call plug#end()

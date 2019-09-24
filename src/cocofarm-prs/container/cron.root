@@ -1,0 +1,3 @@
+#TODO: Edit your self
+#@reboot	root	/naver/BASE-PRS/bin/test.sh
+#* * * * *	root	/naver/BASE-PRS/bin/test.sh

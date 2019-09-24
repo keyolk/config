@@ -1,6 +1,6 @@
 [General]
-  snippetfile = "/home/irteam/.config/pet/snippet.toml"
-  editor = "/usr/bin/nvim"
+  snippetfile = "$HOME/.config/pet/snippet.toml"
+  editor = "$EDITOR"
   column = 40
   selectcmd = "fzf"
 
