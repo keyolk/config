@@ -29,6 +29,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'will133/vim-dirdiff'
+Plug 'terryma/vim-multiple-cursors'
 
 " Information
 Plug 'vim-airline/vim-airline'
