@@ -1,0 +1,33 @@
+#!/bin/bash
+
+function fetch_otp {
+  date_now=$(date +%s) 
+  while true;
+  do
+    result=($(curl -s -u $(pass google/id):$(pass google/secret) "https://mail.google.com/mail/feed/atom" \
+      | grep -oPm1 "(?<=<title>)[^<]+|(?<=<issued>)[^<]+" \
+      | grep NSA -A 1))
+
+    if [[ $result != "" ]]
+    then
+      OTP=$(echo ${result[3]} | sed 's/\[//; s/\]//;')
+      ISSUED=$(date -d "${result[4]}" +%s)
+      if [[ $ISSUED -gt $date_now ]]
+      then
+        echo $OTP
+        return
+      fi
+    else
+      sleep 5
+    fi
+  done
+}
+
+mkfifo pipe
+echo $(pass naver/connect/secret) >pipe &
+fetch_otp >pipe &
+
+username=$(pass naver/connect/id)
+sudo openconnect -b --juniper nsa.navercorp.com/fullmoon -u ${username} --useragent="ua" <pipe
+
+rm pipe
