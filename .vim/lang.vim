@@ -2,11 +2,9 @@
 " gutentags
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
 "let g:gutentags_project_root = ['.root']
-let g:gutentags_project_root = ['Cargo.toml']
 let g:gutentags_cache_dir = '~/.cache/gutentags'
 let g:gutentags_cache_dir = expand('~/.cache/tags')
 let g:gutentags_plus_switch = 1
-"call add(g:gutentags_project_info, {'type': 'rust', 'file': 'Cargo.toml'})
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ale
@@ -14,13 +12,18 @@ let g:ale_linters = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'c': ['gcc', 'clang'],
       \ 'cpp': ['g++', 'clang'],
+      \ 'php': ['php'],
       \ 'sh': ['shellcheck'],
+      \ 'bash': ['shellcheck'],
+      \ 'zsh': ['shellcheck'],
+      \ 'fish': ['shellcheck'],
       \ 'json': ['jsonlint'],
       \ 'css': ['csslint'],
       \ 'javascript': ['eslint'],
       \ 'go': ['gopls'],
       \ 'rust': ['rls'],
       \}
+
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 let g:ale_echo_msg_format = '[%linter%]% code%: %s'
@@ -75,10 +78,6 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " rust.vim
-"au FileType rust nmap gd <Plug>(rust-def)
-"au FileType rust nmap gs <Plug>(rust-def-split)
-"au FileType rust nmap gx <Plug>(rust-def-vertical)
-"au FileType rust nmap <leader>gd <Plug>(rust-doc)
 let g:rustfmt_autosave = 1
 let g:rust_conceal = 1 
 let g:rust_conceal_mod_path = 1 
@@ -104,6 +103,9 @@ if !exists('g:tagbar_type_rust')
    \ }
 endif
 
+call add(g:gutentags_project_info, {'type': 'rust', 'file': 'Cargo.toml'})
+"let g:gutentags_project_root = ['Cargo.toml']
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-go
 let g:go_fmt_command = 'goimports'
@@ -114,4 +116,4 @@ let g:go_gocode_propose_source = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " svelte
-au! BufNewFile,BufRead *.svelte set ft=html
+autocmd! BufNewFile,BufRead *.svelte set ft=html

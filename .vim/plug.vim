@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 " Fuzzy Finding
-Plug 'junegunn/fzf', {'dir': '~/.fzf'}
+Plug 'junegunn/fzf', {'dir': '~/.fzf' , 'do': 'yes \| ./install'}
 Plug 'junegunn/fzf.vim'
 
 " Navigation
@@ -54,7 +54,7 @@ Plug 'skywind3000/gutentags_plus'
 Plug 'Shougo/context_filetype.vim'
 
 " Language Specific Supports
-Plug 'fatih/vim-go', { 'for': ['go'] }
+Plug 'fatih/vim-go', { 'for': ['go'], 'do': ':GoInstallBinaries' }
 Plug 'jodosha/vim-godebug', { 'for': ['go'] }
 Plug 'rust-lang/rust.vim', { 'for': ['rust'] }
 Plug 'racer-rust/vim-racer', { 'for': ['rust'] }

@@ -45,10 +45,10 @@ let g:fzf_colors = {
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 let g:fzf_files_options =
-  \ '--preview "cat {} 2> /dev/null | head -'.&lines.'"'
+  \ '--preview "file {} | grep ELF  cat {} 2> /dev/null | head -'.&lines.'"'
 
 let g:fzf_history_options =
-  \ '--preview "cat {} 2> /dev/null | head -'.&lines.'"'
+  \ '--preview "file {} | grep ELF  cat {} 2> /dev/null | head -'.&lines.'"'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " easy align
@@ -68,12 +68,17 @@ let g:indentLine_color_term = 239
 let g:indentLine_enabled = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nerdcommenter 
+nnoremap <leader>.c :call NERDComment(0, "toggle")<CR>
+vnoremap <leader>.c :call NERDComment(0, "toggle")<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tagbar
 nnoremap <leader>.t :TagbarToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-zoom
-nnoremap <C-z> :call zoom#toggle()<CR>
+nnoremap <leader>.z :call zoom#toggle()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter
