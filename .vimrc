@@ -12,12 +12,11 @@ set bg=dark
 " misc
 set smartcase
 set mouse=a
-set signcolumn=yes
+set signcolumn=auto
 set encoding=utf-8
 set noswapfile
 set updatetime=750
 set autochdir
-set incsearch
 set shortmess+=c
 set cmdheight=2
 set mmp=5000
@@ -51,6 +50,13 @@ set shiftwidth=2
 set statusline=%<%f%h%m%r%=%b\ 0x%B\ \ %l,%c%V\ %P
 set laststatus=2
 
+" clipboard related
+set clipboard+=unnamedplus
+
+" line number related
+set number
+set relativenumber
+
 " set leader
 let mapleader=","
 
@@ -79,7 +85,6 @@ nnoremap <C-h> <C-w><C-h>
 
 nnoremap <C-q> :close<CR>
 noremap <C-A-q> :q!<CR>
-nnoremap <C-r> <C-w>r
 
 " buffer control
 nnoremap <S-h> :bprev<CR>
@@ -113,12 +118,11 @@ function! ToggleExplorer()
     endif
 endfunction
 
+
 noremap <leader>.e :call ToggleExplorer()<CR>
 
-" clipboard related
-set clipboard+=unnamedplus
-
 noremap <leader>.p :call PasteToggle()<CR>
+
 function! PasteToggle()
     if(&paste == 1)
         set nopaste
@@ -126,10 +130,6 @@ function! PasteToggle()
         set paste
     endif
 endfunction
-
-" line number related
-set number
-set relativenumber
 
 nnoremap <leader>.n :call NumberToggle()<CR>
 function! NumberToggle()
@@ -181,10 +181,10 @@ nnoremap <leader>x :vsplit<CR>
 "nnoremap <C-k> mxO<esc>`x
 "nnoremap <C-j> mxo<esc>`x
 "
-aug QFClose
-  au!
-  au WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
-aug END
+augroup QFClose
+  autocmd!
+  autocmd WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif
+augroup END
 
 augroup EditVim
   autocmd!

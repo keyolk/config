@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home1/irteam/naver/work/keyolk/src/cocoa'
-let g:netrw_dirhist_2='/home1/irteam/naver/work/keyolk/src/cocoa/actions'
-let g:netrw_dirhist_3='/home1/irteam/naver/work/keyolk/src/cocoa/actions/registrator'
