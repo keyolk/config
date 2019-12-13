@@ -30,6 +30,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'will133/vim-dirdiff'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'honza/vim-snippets'
 
 " Information
 Plug 'vim-airline/vim-airline'
@@ -43,20 +44,21 @@ Plug 'tpope/vim-eunuch'
 
 " Linting
 Plug 'w0rp/ale'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }} " Coc intellisense engine
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
 Plug 'tpope/vim-eunuch'
 
 " Tagging
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/gutentags_plus'
+"Plug 'ludovicchabant/vim-gutentags'
+"Plug 'skywind3000/gutentags_plus'
 
 " Autocomplete
 Plug 'Shougo/context_filetype.vim'
 
 " Language Specific Supports
 Plug 'fatih/vim-go', { 'for': ['go'], 'do': ':GoInstallBinaries' }
-Plug 'jodosha/vim-godebug', { 'for': ['go'] }
-Plug 'rust-lang/rust.vim', { 'for': ['rust'] }
-Plug 'racer-rust/vim-racer', { 'for': ['rust'] }
+"Plug 'jodosha/vim-godebug', { 'for': ['go'] }
+"Plug 'rust-lang/rust.vim', { 'for': ['rust'] }
+"Plug 'racer-rust/vim-racer', { 'for': ['rust'] }
+Plug 'evanleck/vim-svelte'
 
 call plug#end()

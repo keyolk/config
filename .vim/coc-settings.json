@@ -2,9 +2,21 @@
   "languageserver": {
     "golang": {
       "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "rootPatterns": ["go.mod", ".vim", ".git/", ".hg/"],
       "filetypes": ["go"]
+    },
+    "ccls": {
+      "command": "ccls",
+      "rootPatterns": [".ccls", "compile_commands.json", ".vim", ".git/", ".hg/"],
+      "filetypes": ["c", "cpp", "cxx"],
+      "initializationOptions": {
+        "cache": {
+          "directory": ".ccls.cache"
+        }
+      }
     }
-  }
+  },
+  "json.format.enable": true,
+  "yaml.format.enable": true
 }
 

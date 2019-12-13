@@ -46,13 +46,6 @@ autocmd QuitPre * if empty(&bt) | lclose | endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " coc.nvim
-
-imap <C-l> <Plug>(coc-snippets-expand)
-vmap <C-j> <Plug>(coc-snippets-select)
-let g:coc_snippet_next = '<c-j>'
-let g:coc_snippet_prev = '<c-k>'
-imap <C-j> <Plug>(coc-snippets-expand-jump)"
-
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -82,6 +75,27 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-go
+let g:go_fmt_command = 'goimports'
+let g:go_def_mode = 'gopls'
+let g:go_def_mapping_enabled = 0
+let g:go_auto_type_info = 1
+let g:go_gocode_propose_source = 0
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " rust.vim
 let g:rustfmt_autosave = 1
@@ -108,18 +122,3 @@ if !exists('g:tagbar_type_rust')
        \ ]
    \ }
 endif
-
-"call add(g:gutentags_project_info, {'type': 'rust', 'file': 'Cargo.toml'})
-"let g:gutentags_project_root = ['Cargo.toml']
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-go
-let g:go_fmt_command = 'goimports'
-let g:go_def_mode = 'gopls'
-let g:go_def_mapping_enabled = 0
-let g:go_auto_type_info = 1
-let g:go_gocode_propose_source = 0
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" svelte
-autocmd! BufNewFile,BufRead *.svelte set ft=html

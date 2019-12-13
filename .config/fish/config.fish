@@ -35,6 +35,6 @@ for file in (ls $HOME/.local/profile/*.fish)
   source $file
 end
 
-alias vimconfig='vim ~/.vimrc ~/.vim/*.vim'
+alias vimconfig='vim ~/.vimrc ~/.vim/*.vim ~/.vim/*.json'
 alias fishconfig='vim ~/.config/fish/config.fish'
 alias tmuxconfig='vim ~/.tmux.conf'
