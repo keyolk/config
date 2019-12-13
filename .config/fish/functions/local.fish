@@ -21,8 +21,13 @@ function fcd -d "Fuzzy change directory"
   cd $destdir
 end
 
+# ssh related
 function ssh_get_hostname -d "get hostname from ssh host"
   ssh -G $argv | grep -E '^hostname' | awk '{print $2}' 
+end
+
+function ssh_get_host -d "find host from ssh config"
+  cat ~/.ssh/config | grep -i 'Host ' | fzf --preview "ssh -G (echo {} | awk '{print \$2}') 2> /dev/null | grep -E '^hostname |^user |identity|^port' 2> /dev/null" | awk '{print $2}'
 end
 
 # git related
