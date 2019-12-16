@@ -29,12 +29,16 @@ set -x FZF_DEFAULT_COMMAND  'rg --files --no-ignore-vcs --hidden'
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
 
+# load local functions in $HOME/.config/fish/functions/local.fish
 local
 
+# load private profile in local
 for file in (ls $HOME/.local/profile/*.fish)
   source $file
 end
 
-alias vimconfig='vim ~/.vimrc ~/.vim/*.vim ~/.vim/*.json'
-alias fishconfig='vim ~/.config/fish/config.fish'
-alias tmuxconfig='vim ~/.tmux.conf'
+# for easy configuration
+alias vimconfig='$EDITOR ~/.vimrc ~/.vim/*.vim ~/.vim/*.json'
+alias fishconfig='$EDITOR ~/.config/fish/config.fish'
+alias tmuxconfig='$EDITOR ~/.tmux.conf'
+alias gitconfig='$EDITOR ~/.gitconfig'

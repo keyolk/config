@@ -28,8 +28,13 @@
   url = "!f() { git remote get-url ${1:-origin}; }; f"
   origin2upstream = "!git remote add upstream $(git remote get-url origin)"
   user2remote = "!f() { git remote set-url ${1:-origin} $(git remote get-url ${1:-origin} | sed \"s|https://|https://$(git config user.name)@|g\"); }; f"
+	d = difftool
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
