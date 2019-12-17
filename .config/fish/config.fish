@@ -37,7 +37,13 @@ for file in (ls $HOME/.local/profile/*.fish)
   source $file
 end
 
+# path
 set fish_user_paths $fish_user_paths $GOPATH/bin $HOME/.local/bin
+
+# some aliases
+alias help='tldr'
+alias fzf='fzf --ansi'
+alias less='less -R'
 
 # for easy configuration
 alias vimconfig='$EDITOR ~/.vimrc ~/.vim/*.vim ~/.vim/*.json'
