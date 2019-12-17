@@ -37,6 +37,8 @@ for file in (ls $HOME/.local/profile/*.fish)
   source $file
 end
 
+set fish_user_paths $fish_user_paths $GOPATH/bin $HOME/.local/bin
+
 # for easy configuration
 alias vimconfig='$EDITOR ~/.vimrc ~/.vim/*.vim ~/.vim/*.json'
 alias fishconfig='$EDITOR ~/.config/fish/config.fish'
