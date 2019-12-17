@@ -23,6 +23,15 @@
 	token = "!pass github/token/ghi"
 
 [alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  dc = diff --cached
+  lg = log -p
+  gr = log --all --graph --decorate --oneline
+
   pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
   pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
   url = "!f() { git remote get-url ${1:-origin}; }; f"
