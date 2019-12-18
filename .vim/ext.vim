@@ -51,20 +51,35 @@ let g:fzf_history_options =
   \ '--preview "file {} | grep ELF || bat {} 2> /dev/null | head -'.&lines.'"'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-gitgutter
+map <leader>.g :GitGutterToggle<CR>
+let g:gitgutter_diff_base = 'HEAD'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-fugitive
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>ge :Gedit<CR>
+nnoremap <leader>gd :Gdiff
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" gv
+nnoremap <leader>gv :GV<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " easy align
-xmap ga <Plug>(EasyAlign)
+xnoremap ga <Plug>(EasyAlign)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-surround
 map <leader>si ysiw
 map <leader>sc cs
 map <leader>sd ds
-vmap <leader>s S
+vmap S S
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " indentLine
 nnoremap <leader>.i :IndentLinesToggle<CR>
-let g:indentLine_color_term = 239
 let g:indentLine_enabled = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -77,13 +92,12 @@ vnoremap <leader>.c :call NERDComment(0, "toggle")<CR>
 nnoremap <leader>.t :TagbarToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-zoom
-nnoremap <leader>.z :call zoom#toggle()<CR>
+" hexmode
+nnoremap <leader>.h :Hexmode<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-gitgutter
-map <leader>.g :GitGutterToggle<CR>
-let g:gitgutter_diff_base = 'HEAD'
+" vim-zoom
+nnoremap <leader>.z :call zoom#toggle()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-airline

@@ -20,6 +20,7 @@ set autochdir
 set shortmess+=c
 set cmdheight=2
 set mmp=5000
+set hidden
 
 set exrc
 set secure
