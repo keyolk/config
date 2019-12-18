@@ -103,6 +103,7 @@ let g:netrw_banner = 0
 let g:NetrwIsOpen=0
 autocmd FileType netrw setl bufhidden=delete
 
+noremap <leader>.e :call ToggleExplorer()<CR>
 function! ToggleExplorer()
     if g:NetrwIsOpen
         let i = bufnr("$")
@@ -119,11 +120,7 @@ function! ToggleExplorer()
     endif
 endfunction
 
-
-noremap <leader>.e :call ToggleExplorer()<CR>
-
 noremap <leader>.p :call PasteToggle()<CR>
-
 function! PasteToggle()
     if(&paste == 1)
         set nopaste
