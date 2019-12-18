@@ -41,7 +41,6 @@ end
 set fish_user_paths $fish_user_paths $GOPATH/bin $HOME/.local/bin
 
 # some aliases
-alias help='tldr'
 alias fzf='fzf --ansi'
 alias less='less -R'
 
