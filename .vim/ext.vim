@@ -3,19 +3,20 @@
 nmap <leader>ff :Files<CR>
 nmap <leader>fg :GFiles<CR>
 nmap <leader>fr :Rg 
-nmap <leader>fh :History<CR>
+nmap <leader>fht :History<CR>
 
 nmap <leader>fb :Buffers<CR>
 nmap <leader>fw :Windows<CR>
 nmap <leader>ft :Tags<CR>
 nmap <leader>fts :Filetypes<CR>
 nmap <leader>fl :Lines<CR>
-nmap <leader>fht :Helptags<CR>
-nmap <leader>fm :Maps<CR>
+nmap <leader>fhp :Helptags<CR>
+nmap <leader>fmp :Maps<CR>
+nmap <leader>fmk :Marks<CR>
+nmap <leader>fs :Colors<CR>
 
 nmap <leader>fcm :Commands<CR>
 nmap <leader>fct :Commits<CR>
-nmap <leader>fs :Colors<CR>
 
 nmap <leader>fbt :BTags<CR>
 nmap <leader>fbl :BLines<CR>
