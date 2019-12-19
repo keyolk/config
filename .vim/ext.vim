@@ -45,10 +45,10 @@ let g:fzf_colors = {
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 let g:fzf_files_options =
-  \ '--preview "file {} | grep ELF || bat {} 2> /dev/null | head -'.&lines.'"'
+  \ '--preview "file {} | grep ELF || coderay {} 2> /dev/null | head -'.&lines.'"'
 
 let g:fzf_history_options =
-  \ '--preview "file {} | grep ELF || bat {} 2> /dev/null | head -'.&lines.'"'
+  \ '--preview "file {} | grep ELF || coderay {} 2> /dev/null | head -'.&lines.'"'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter
