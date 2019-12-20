@@ -14,8 +14,8 @@ set fish_greeting ""
 fish_vi_key_bindings
 
 ## common environment
-set -x SHELL fish
-set -x EDITOR nvim
+set -x SHELL (which fish)
+set -x EDITOR (which nvim)
 set -x BROWSER chromium
 set -x FISH (which fish)
 set -x GOPATH $HOME/go
@@ -38,7 +38,7 @@ for file in (ls $HOME/.local/profile/*.fish)
 end
 
 # path
-set fish_user_paths $fish_user_paths $GOPATH/bin $HOME/.local/bin
+set fish_user_paths $fish_user_paths $GOPATH/bin (ruby -r rubygems -e 'puts Gem.user_dir')/bin $HOME/.local/bin
 
 # some aliases
 alias fzf='fzf --ansi'
