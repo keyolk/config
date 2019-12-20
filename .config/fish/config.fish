@@ -38,7 +38,7 @@ for file in (ls $HOME/.local/profile/*.fish)
 end
 
 # path
-set fish_user_paths $fish_user_paths $GOPATH/bin $HOME/.local/bin
+set fish_user_paths $fish_user_paths $GOPATH/bin (ruby -r rubygems -e 'puts Gem.user_dir')/bin $HOME/.local/bin
 
 # some aliases
 alias fzf='fzf --ansi'
