@@ -14,8 +14,8 @@ set fish_greeting ""
 fish_vi_key_bindings
 
 ## common environment
-set -x SHELL fish
-set -x EDITOR nvim
+set -x SHELL (which fish)
+set -x EDITOR (which nvim)
 set -x BROWSER chromium
 set -x FISH (which fish)
 set -x GOPATH $HOME/go
