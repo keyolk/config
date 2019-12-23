@@ -30,7 +30,7 @@ Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'will133/vim-dirdiff'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'honza/vim-snippets'
-Plug 'rlue/vim-barbaric'
+"Plug 'rlue/vim-barbaric'
 
 " Information
 Plug 'vim-airline/vim-airline'
