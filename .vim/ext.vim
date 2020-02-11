@@ -1,26 +1,34 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " fzf
-nmap <leader>ff :Files<CR>
-nmap <leader>fg :GFiles<CR>
-nmap <leader>fr :Rg 
-nmap <leader>fht :History<CR>
+nmap ;f :Files<CR>
+nmap ;f; :Files<CR>
+nmap ;fh :History<CR>
+nmap ;fg :GFiles<CR>
+nmap ;ft :Filetypes<CR>
 
-nmap <leader>fb :Buffers<CR>
-nmap <leader>fw :Windows<CR>
-nmap <leader>ft :Tags<CR>
-nmap <leader>fts :Filetypes<CR>
-nmap <leader>fl :Lines<CR>
-nmap <leader>fhp :Helptags<CR>
-nmap <leader>fmp :Maps<CR>
-nmap <leader>fmk :Marks<CR>
-nmap <leader>fs :Colors<CR>
+nmap ;l :Lines<CR>
+nmap ;l; :Lines<CR>
+nmap ;lb :BLines<CR>
+nmap ;lr :Rg 
 
-nmap <leader>fcm :Commands<CR>
-nmap <leader>fct :Commits<CR>
+nmap ;c :Commits<CR>
+nmap ;c; :Commits<CR>
+nmap ;cb :BCommits<CR>
 
-nmap <leader>fbt :BTags<CR>
-nmap <leader>fbl :BLines<CR>
-nmap <leader>fbct :BCommits<CR>
+nmap ;b :Buffers<CR>
+nmap ;b; :Buffers<CR>
+
+nmap ;w :Windows<CR>
+nmap ;w; :Windows<CR>
+
+nmap ;t :Tags<CR>
+nmap ;t; :Tags<CR>
+nmap ;tb :BTags<CR>
+
+nmap ;? :Helptags<CR>
+nmap ;! :Commands<CR>
+nmap ;mp :Maps<CR>
+nmap ;mk :Marks<CR>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -46,14 +54,13 @@ let g:fzf_colors = {
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 let g:fzf_files_options =
-  \ '--preview "file {} | grep ELF || coderay {} 2> /dev/null | head -'.&lines.'"'
-
-let g:fzf_history_options =
-  \ '--preview "file {} | grep ELF || coderay {} 2> /dev/null | head -'.&lines.'"'
+  \ '--preview "file {1} | grep ELF || coderay {} 2> /dev/null | head -'.&lines.'"'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter
 map <leader>.g :GitGutterToggle<CR>
+map <leader>gn :GitGutterNextHunk<CR>
+map <leader>gp :GitGutterPrevHunk<CR>
 let g:gitgutter_diff_base = 'HEAD'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -69,7 +76,8 @@ nnoremap <leader>gv :GV<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " easy align
-xnoremap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-surround
@@ -91,6 +99,18 @@ vnoremap <leader>.c :call NERDComment(0, "toggle")<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tagbar
 nnoremap <leader>.t :TagbarToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" float-preview
+function! DisableExtras()
+  call nvim_win_set_option(g:float_preview#win, 'number', v:false)
+  call nvim_win_set_option(g:float_preview#win, 'relativenumber', v:false)
+  call nvim_win_set_option(g:float_preview#win, 'cursorline', v:false)
+endfunction
+
+autocmd User FloatPreviewWinOpen call DisableExtras()
+
+let g:float_preview#docked = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " hexmode

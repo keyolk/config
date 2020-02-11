@@ -34,6 +34,13 @@
 
   pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
   pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+
+  edit-unmerged = \
+    "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; $EDITOR `f`"
+
+  add-unmerged = \
+    "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+
   url = "!f() { git remote get-url ${1:-origin}; }; f"
   origin2upstream = "!git remote add upstream $(git remote get-url origin)"
   user2remote = "!f() { git remote set-url ${1:-origin} $(git remote get-url ${1:-origin} | sed \"s|https://|https://$(git config user.name)@|g\"); }; f"

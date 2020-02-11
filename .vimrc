@@ -25,6 +25,9 @@ set hidden
 set exrc
 set secure
 
+" preview related
+set previewheight=10
+
 " window related
 set winheight=30
 set splitbelow
@@ -172,8 +175,8 @@ set completeopt=menu,menuone,preview,noselect,noinsert
 
 " splits
 set splitbelow!
-nnoremap <leader>s :split<CR>
-nnoremap <leader>x :vsplit<CR>
+nnoremap <leader>/s :split<CR>
+nnoremap <leader>/v :vsplit<CR>
 
 " mark
 "nnoremap <C-k> mxO<esc>`x
@@ -204,3 +207,27 @@ augroup Binary
   au BufWritePost *.bin if &bin | %!xxd
   au BufWritePost *.bin set nomod | endif
 augroup END
+
+nnoremap <leader>.c :call VCenterCursorToggle()<CR>
+if !exists('*VCenterCursor')
+  augroup VCenterCursor
+  au!
+  au OptionSet *,*.*
+    \ if and( expand("<amatch>")=='scrolloff' ,
+    \         exists('#VCenterCursor#WinEnter,WinNew,VimResized') )|
+    \   au! VCenterCursor WinEnter,WinNew,VimResized|
+    \ endif
+  augroup END
+  function VCenterCursorToggle()
+    if !exists('#VCenterCursor#WinEnter,WinNew,VimResized')
+      let s:default_scrolloff=&scrolloff
+      let &scrolloff=winheight(win_getid())/2
+      au VCenterCursor WinEnter,WinNew,VimResized *,*.*
+        \ let &scrolloff=winheight(win_getid())/2
+    else
+      au! VCenterCursor WinEnter,WinNew,VimResized
+      let &scrolloff=s:default_scrolloff
+    endif
+  endfunction
+endif
+call VCenterCursorToggle()

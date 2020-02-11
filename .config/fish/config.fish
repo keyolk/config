@@ -43,9 +43,11 @@ set fish_user_paths $fish_user_paths $GOPATH/bin (ruby -r rubygems -e 'puts Gem.
 # some aliases
 alias fzf='fzf --ansi'
 alias less='less -R'
+alias clrout='sed \'s,\x1b\\[[0-9;]*[a-zA-Z],,g\''
 
 # for easy configuration
 alias vimconfig='$EDITOR ~/.vimrc ~/.vim/*.vim ~/.vim/*.json'
 alias fishconfig='$EDITOR ~/.config/fish/config.fish'
 alias tmuxconfig='$EDITOR ~/.tmux.conf'
 alias gitconfig='$EDITOR ~/.gitconfig'
+alias sshconfig='$EDITOR ~/.ssh/config'

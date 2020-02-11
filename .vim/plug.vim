@@ -15,6 +15,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Editing
 Plug 'Yggdroot/indentLine'
+Plug 'ncm2/float-preview.nvim'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fidian/hexmode'

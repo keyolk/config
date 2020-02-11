@@ -17,5 +17,11 @@
     }
   },
   "json.format.enable": true,
-  "yaml.format.enable": true
+  "yaml.format.enable": true,
+  "suggest.floatEnable": true,
+  "list.maxHeight": 5,
+  "list.maxPreviewHeight": 5,
+  "suggest.detailMaxLength": 5,
+  "diagnostic.messageTarget": "echo",
+  "signature.target": "echo"
 }
