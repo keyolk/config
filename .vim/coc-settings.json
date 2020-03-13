@@ -19,9 +19,10 @@
   "json.format.enable": true,
   "yaml.format.enable": true,
   "suggest.floatEnable": true,
-  "list.maxHeight": 5,
-  "list.maxPreviewHeight": 5,
-  "suggest.detailMaxLength": 5,
+  "list.maxHeight": 10,
+  "list.maxPreviewHeight": 30,
+  "suggest.detailMaxLength": 10,
+  "diagnostic.maxWindowHeight": 10,
   "diagnostic.messageTarget": "echo",
   "signature.target": "echo"
 }

@@ -51,3 +51,24 @@ alias fishconfig='$EDITOR ~/.config/fish/config.fish'
 alias tmuxconfig='$EDITOR ~/.tmux.conf'
 alias gitconfig='$EDITOR ~/.gitconfig'
 alias sshconfig='$EDITOR ~/.ssh/config'
+alias profileconfig='$EDITOR ~/.local/profile/*'
+
+# tmux handling
+if test -n "$TMUX"
+  exit 0
+end
+
+if ! tty
+echo tty
+  exit 0
+end
+
+if test -n "$TMUX_SOCK"
+  alias tmux='tmux -S $TMUX_SOCK'
+end
+
+if tmux list-sessions -eq 0
+  exec tmux attach
+end
+
+exec tmux
