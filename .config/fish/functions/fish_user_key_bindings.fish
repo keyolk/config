@@ -1,7 +1,7 @@
 function fish_user_key_bindings
     fzf_key_bindings
     ### pet ###
-    bind -M insert \cs 'pet-select'
+    bind -M insert \cn 'pet-select'
     ### pet ###
     ### fzf ###
     if test "$FZF_LEGACY_KEYBINDINGS" -eq 1

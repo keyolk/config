@@ -40,12 +40,12 @@
 
 [[snippets]]
   description = "kerberos keytab creating"
-  command = "set user keyolk; set pass PASSWORD; printf \"%b\" \"addent -password -p $user -k 1 -e des-cbc-crc\\n$pass\\nwrite_kt $user.keytab\" | ktutil"
+  command = "set user <user>; set pass <password>; printf \"%b\" \"addent -password -p $user -k 1 -e des-cbc-crc\\n$pass\\nwrite_kt $user.keytab\" | ktutil"
   output = ""
 
 [[snippets]]
   description = "kerberos login"
-  command = "kinit -k -t ~/keyolk.keytab  keyolk  -l 24hrs"
+  command = "kinit -k -t <keytabfilepath> <username> -l 24hrs"
   output = ""
 
 [[snippets]]
@@ -81,6 +81,26 @@
 [[snippets]]
   description = "git log default"
   command = "git log -p -1"
+  output = ""
+
+[[snippets]]
+  description = "git log search"
+  command = "git log -S"
+  output = ""
+
+[[snippets]]
+  description = "git check merged branches"
+  command = "git branch --merged"
+  output = ""
+
+[[snippets]]
+  description = "git delete remote branch"
+  command = "git push origin --delete"
+  output = ""
+
+[[snippets]]
+  description = "git delete remote tag"
+  command = "git push <remote=origin> :refs/tags/<tag>"
   output = ""
 
 [[snippets]]
@@ -155,7 +175,17 @@
 
 [[snippets]]
   description = "xpane to all docker node"
-  command = "xpanes -c \"ssh irteamsu@{}\" (docker node ls --format '{{.Hostname}}')"
+  command = "xpanes -c \"ssh <account=irteam>@{}\" (docker node ls --format '{{.Hostname}}')"
+  output = ""
+
+[[snippets]]
+  description = "xpane to all docker manager"
+  command = "xpanes -c \"ssh <account=irteam>@{}\" (docker node ls --filter role=manager --format '{{.Hostname}}')"
+  output = ""
+
+[[snippets]]
+  description = "xpane to all docker worker"
+  command = "xpanes -c \"ssh <account=irteam>@{}\" (docker node ls --filter role=worker --format '{{.Hostname}}')"
   output = ""
 
 [[snippets]]
@@ -176,4 +206,24 @@
 [[snippets]]
   description = "tcpdump HTTP request/response"
   command = "tcpdump -nn -A -X -i any -c 100 -s 1500 '((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0'"
+  output = ""
+
+[[snippets]]
+  description = "lsof"
+  command = "lsof -i -a -p ${PID}"
+  output = ""
+
+[[snippets]]
+  description = "openssl check modulus of private key"
+  command = "openssl rsa -modulus -noout -in <privkey> | openssl md5"
+  output = ""
+
+[[snippets]]
+  description = "openssl check modulus of public key"
+  command = "openssl x509 -modulus -noout -in <publickey> | openssl md5"
+  output = ""
+
+[[snippets]]
+  description = "tcpdump http req/resp"
+  command = "tcpdump -A -s 0 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'"
   output = ""

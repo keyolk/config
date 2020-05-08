@@ -5,3 +5,5 @@ fishpkg/fish-humanize-duration
 fishpkg/fish-last-job-id
 keyolk/simple
 otms61/fish-pet
+acomagu/fish-async-prompt
+edc/bass

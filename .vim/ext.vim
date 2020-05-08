@@ -101,18 +101,6 @@ vnoremap <leader>.c :call NERDComment(0, "toggle")<CR>
 nnoremap <leader>.t :TagbarToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" float-preview
-function! DisableExtras()
-  call nvim_win_set_option(g:float_preview#win, 'number', v:false)
-  call nvim_win_set_option(g:float_preview#win, 'relativenumber', v:false)
-  call nvim_win_set_option(g:float_preview#win, 'cursorline', v:false)
-endfunction
-
-autocmd User FloatPreviewWinOpen call DisableExtras()
-
-let g:float_preview#docked = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " hexmode
 nnoremap <leader>.h :Hexmode<CR>
 
@@ -135,3 +123,19 @@ let g:airline#extensions#ale#enabled  = 1
 let g:vimwiki_list = [{'path': '~/wiki/', 
 \   'syntax': 'markdown', 
 \   'ext': '.md'}]
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ranger.vim
+"
+let g:ranger_replace_netrw = 1
+let g:ranger_map_keys = 0
+set shell=bash
+map <leader>f :Ranger<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-gh-line
+let g:gh_line_map_default = 0
+let g:gh_line_blame_map_default = 0
+let g:gh_line_map = '<leader>gh'
+let g:gh_line_blame_map = '<leader>gb'
+let g:gh_open_command = 'fn() { echo "$@" | yank; }; fn '

@@ -21,6 +21,7 @@ set shortmess+=c
 set cmdheight=2
 set mmp=5000
 set hidden
+set diffopt+=vertical
 
 set exrc
 set secure
@@ -56,6 +57,18 @@ set laststatus=2
 
 " clipboard related
 set clipboard+=unnamedplus
+
+" copy to attached terminal using the yank(1) script:
+" https://github.com/sunaku/home/blob/master/bin/yank
+function! Yank(text) abort
+  let escape = system('yank', a:text)
+  if v:shell_error
+    echoerr escape
+  else
+    call writefile([escape], '/dev/tty', 'b')
+  endif
+endfunction
+noremap <silent> <Leader>y y:<C-U>call Yank(@0)<CR>
 
 " line number related
 set number
@@ -100,11 +113,11 @@ nnoremap <C-A-h> :bprev<CR>
 nnoremap <C-A-l> :bnext<CR>
 
 " netrw related
-let g:netrw_banner = 0
+"let g:netrw_banner = 0
 "let g:netrw_liststyle = 3
 "let g:netrw_winsize = 10
-let g:NetrwIsOpen=0
-autocmd FileType netrw setl bufhidden=delete
+"let g:NetrwIsOpen=0
+"autocmd FileType netrw setl bufhidden=delete
 
 noremap <leader>.e :call ToggleExplorer()<CR>
 function! ToggleExplorer()

@@ -67,8 +67,9 @@ if test -n "$TMUX_SOCK"
   alias tmux='tmux -S $TMUX_SOCK'
 end
 
-if tmux list-sessions -eq 0
-  exec tmux attach
+# remove right prompt
+function fish_right_prompt
+ #intentionally left blank
 end
 
-exec tmux
+tmux attach
