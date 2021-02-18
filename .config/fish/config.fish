@@ -2,12 +2,12 @@
 set fish_user_paths $fish_user_paths $HOME/.config/bin
 set -x CONFIG_REPO .config.repo
 alias config='git --git-dir=$HOME/$CONFIG_REPO/ --work-tree=$HOME'
-config config status.showUntrackedFiles no
+#config config status.showUntrackedFiles no
 
 set fish_user_paths $fish_user_paths $HOME/.secret/bin
 set -x SECRET_REPO .secret.repo
 alias secret='git --git-dir=$HOME/$SECRET_REPO/ --work-tree=$HOME'
-secret config status.showUntrackedFiles no
+#secret config status.showUntrackedFiles no
 
 ## fish configuration
 set fish_greeting ""
@@ -37,8 +37,11 @@ for file in (ls $HOME/.local/profile/*.fish)
   source $file
 end
 
-# path
-set fish_user_paths $fish_user_paths $GOPATH/bin (ruby -r rubygems -e 'puts Gem.user_dir')/bin $HOME/.local/bin
+# pathes
+set fish_user_paths $fish_user_paths $HOME/.local/bin
+set fish_user_paths $fish_user_paths $GOPATH/bin 
+set fish_user_paths $fish_user_paths (ruby -r rubygems -e 'puts Gem.user_dir')/bin 
+set fish_user_paths $HOME/prefix/usr/bin $fish_user_paths
 
 # some aliases
 alias fzf='fzf --ansi'
@@ -47,21 +50,20 @@ alias clrout='sed \'s,\x1b\\[[0-9;]*[a-zA-Z],,g\''
 
 # for easy configuration
 alias vimconfig='$EDITOR ~/.vimrc ~/.vim/*.vim ~/.vim/*.json'
-alias fishconfig='$EDITOR ~/.config/fish/config.fish'
+alias fishconfig='$EDITOR ~/.config/fish/config.fish ~/.local/profile/*'
 alias tmuxconfig='$EDITOR ~/.tmux.conf'
 alias gitconfig='$EDITOR ~/.gitconfig'
 alias sshconfig='$EDITOR ~/.ssh/config'
-alias profileconfig='$EDITOR ~/.local/profile/*'
 
 # tmux handling
 if test -n "$TMUX"
   exit 0
 end
 
-if ! tty
-echo tty
-  exit 0
-end
+#if ! tty
+#echo tty
+#  exit 0
+#end
 
 if test -n "$TMUX_SOCK"
   alias tmux='tmux -S $TMUX_SOCK'
@@ -71,5 +73,8 @@ end
 function fish_right_prompt
  #intentionally left blank
 end
+
+set -u PREFIX
+set -x CCF_USE_FZF
 
 tmux attach

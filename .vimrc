@@ -30,7 +30,10 @@ set secure
 set previewheight=10
 
 " window related
-set winheight=30
+set winfixwidth
+set winfixheight
+set noequalalways
+"set winheight=30
 set splitbelow
 set splitright
 
@@ -68,7 +71,7 @@ function! Yank(text) abort
     call writefile([escape], '/dev/tty', 'b')
   endif
 endfunction
-noremap <silent> <Leader>y y:<C-U>call Yank(@0)<CR>
+noremap <silent> <C-y> y:<C-U>call Yank(@0)<CR>
 
 " line number related
 set number
@@ -191,10 +194,18 @@ set splitbelow!
 nnoremap <leader>/s :split<CR>
 nnoremap <leader>/v :vsplit<CR>
 
+" to next/prev
+nnoremap <leader>n ]
+nnoremap <leader>p [
+
 " mark
 "nnoremap <C-k> mxO<esc>`x
 "nnoremap <C-j> mxo<esc>`x
-"
+
+" fold
+"set foldmethod=syntax
+"set foldlevel=20
+
 augroup QFClose
   autocmd!
   autocmd WinEnter * if winnr('$') == 1 && &buftype == "quickfix"|q|endif

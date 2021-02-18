@@ -227,3 +227,23 @@
   description = "tcpdump http req/resp"
   command = "tcpdump -A -s 0 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'"
   output = ""
+
+[[snippets]]
+  description = "openssl hmacsha1"
+  command = "echo -n \"<text>\" | openssl dgst -sha1 -hmac \"<key>\" -binary | base64"
+  output = ""
+
+[[snippets]]
+  description = "tcpdump asdfklajsdlkfjlaskdf"
+  command = "tcpdump asdflkasjddfl;jal;sdfjalkdfjlkasddjflkajsldkfja"
+  output = ""
+
+[[snippets]]
+  description = "test"
+  command = "ls -al <name>"
+  output = ""
+
+[[snippets]]
+  description = "epoch to date"
+  command = "date -d@{epoch}"
+  output = ""

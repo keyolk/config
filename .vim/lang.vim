@@ -1,12 +1,4 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" gutentags
-let g:gutentags_modules = ['ctags', 'gtags_cscope']
-"let g:gutentags_project_root = ['.root']
-let g:gutentags_cache_dir = '~/.cache/gutentags'
-let g:gutentags_cache_dir = expand('~/.cache/tags')
-let g:gutentags_plus_switch = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ale
 let g:ale_linters = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -60,20 +52,19 @@ inoremap <silent><expr> <c-space> coc#refresh()
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> U :call <SID>show_documentation()<CR>
 nmap <leader>rn <Plug>(coc-rename)
 vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> <space>n  :<C-u>CocNext<CR>
+nnoremap <silent> <space>p  :<C-u>CocPrev<CR>
+nnoremap <silent> <space>r  :<C-u>CocListResume<CR>
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
@@ -87,13 +78,14 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+let g:coc_disable_startup_warning = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-go
 let g:go_fmt_command = 'goimports'
 let g:go_def_mode = 'gopls'
 let g:go_def_mapping_enabled = 0
-let g:go_auto_type_info = 1
+let g:go_auto_type_info = 0
 let g:go_gocode_propose_source = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -122,3 +114,10 @@ if !exists('g:tagbar_type_rust')
        \ ]
    \ }
 endif
+
+"autocmd FileType fish call s:fish_settings()
+"function! s:fish_settings()
+"  compiler fish
+"  setlocal textwidth=79
+"  setlocal foldmethod=expr
+"endfunction

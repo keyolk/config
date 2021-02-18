@@ -61,7 +61,17 @@ let g:fzf_files_options =
 map <leader>.g :GitGutterToggle<CR>
 map <leader>gn :GitGutterNextHunk<CR>
 map <leader>gp :GitGutterPrevHunk<CR>
+map ]g :GitGutterNextHunk<CR>
+map [g :GitGutterPrevHunk<CR>
 let g:gitgutter_diff_base = 'HEAD'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-bookmarks
+map <leader>.m :BookmarkToggle<CR>
+map <leader>mn :BookmarkNext<CR>
+map <leader>mp :BookmarkPrev<CR>
+map [m :BookmarkPrev<CR>
+map ]m :BookmarkNext<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-fugitive
@@ -118,24 +128,17 @@ let g:airline#extensions#tabline#switch_buffers_and_tabs  = 0
 let g:airline#extensions#ale#enabled  = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" emmet-vim
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimwiki
-"
 let g:vimwiki_list = [{'path': '~/wiki/', 
 \   'syntax': 'markdown', 
 \   'ext': '.md'}]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ranger.vim
-"
 let g:ranger_replace_netrw = 1
 let g:ranger_map_keys = 0
 set shell=bash
-map <leader>f :Ranger<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-gh-line
-let g:gh_line_map_default = 0
-let g:gh_line_blame_map_default = 0
-let g:gh_line_map = '<leader>gh'
-let g:gh_line_blame_map = '<leader>gb'
-let g:gh_open_command = 'fn() { echo "$@" | yank; }; fn '
+map <leader>.r :Ranger<CR>
