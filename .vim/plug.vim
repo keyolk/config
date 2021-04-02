@@ -12,6 +12,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'wsdjeg/vim-fetch'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 " Editing
 Plug 'Yggdroot/indentLine'
@@ -47,15 +48,19 @@ Plug 'tpope/vim-eunuch'
 
 " Linting
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
-Plug 'tpope/vim-eunuch'
 Plug 'prettier/vim-prettier'
 
 " Autocomplete
 Plug 'Shougo/context_filetype.vim'
+Plug 'SirVer/ultisnips'
 
 " Language Specific Supports
 Plug 'fatih/vim-go', { 'for': ['go'], 'do': ':GoInstallBinaries' }
 Plug 'evanleck/vim-svelte'
 Plug 'dag/vim-fish'
+Plug 'cespare/vim-toml'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'mogelbrod/vim-jsonpath'
+Plug 'lmeijvogel/vim-yaml-helper'
 
 call plug#end()

@@ -1,7 +1,7 @@
 [user]
   email = chanhun.jeong@navercorp.com
   name = keyolk
-    
+
 [core]
 	editor = nvim
 	pager = less -R

@@ -247,3 +247,8 @@
   description = "epoch to date"
   command = "date -d@{epoch}"
   output = ""
+
+[[snippets]]
+  description = "find ignore hidden file"
+  command = "find . -not -path '*/\\.*'"
+  output = ""

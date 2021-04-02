@@ -25,6 +25,8 @@ nmap ;t :Tags<CR>
 nmap ;t; :Tags<CR>
 nmap ;tb :BTags<CR>
 
+nmap ;s :Snippets<CR>
+
 nmap ;? :Helptags<CR>
 nmap ;! :Commands<CR>
 nmap ;mp :Maps<CR>

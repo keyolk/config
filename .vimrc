@@ -1,3 +1,7 @@
+set encoding=utf-8
+scriptencoding utf-8
+filetype indent plugin on
+
 " colorscheme related
 highlight normal      ctermbg=none
 highlight statement   ctermbg=none
@@ -11,7 +15,11 @@ set bg=dark
 
 " misc
 set smartcase
+set ignorecase
 set mouse=a
+set wrap
+set sidescroll=1
+set mousemodel=popup_setpos
 set signcolumn=auto
 set encoding=utf-8
 set noswapfile
@@ -20,11 +28,13 @@ set autochdir
 set shortmess+=c
 set cmdheight=2
 set mmp=5000
-set hidden
 set diffopt+=vertical
-
+set lazyredraw
+set hidden
 set exrc
 set secure
+
+set wildignore+=*.o,*~,*.pyc
 
 " preview related
 set previewheight=10
@@ -33,7 +43,6 @@ set previewheight=10
 set winfixwidth
 set winfixheight
 set noequalalways
-"set winheight=30
 set splitbelow
 set splitright
 
@@ -41,8 +50,11 @@ set hlsearch
 set incsearch
 set cpoptions+=x
 
-set noshowmode
-set noshowcmd
+set showmode
+set showcmd
+set showmatch
+set linebreak
+
 
 set noerrorbells
 set visualbell
@@ -53,6 +65,8 @@ set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+set textwidth=80
+set smartindent
 
 " show asicc code of current cursor
 set statusline=%<%f%h%m%r%=%b\ 0x%B\ \ %l,%c%V\ %P
@@ -78,7 +92,8 @@ set number
 set relativenumber
 
 " set leader
-let mapleader=","
+let g:mapleader=","
+let g:maplocalleader='\'
 
 " reload rc
 nnoremap <leader>r :source $MYVIMRC<CR>

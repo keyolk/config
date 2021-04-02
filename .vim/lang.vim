@@ -1,42 +1,4 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ale
-let g:ale_linters = {
-      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'c': ['gcc', 'clang'],
-      \ 'cpp': ['g++', 'clang'],
-      \ 'php': ['php'],
-      \ 'sh': ['shellcheck'],
-      \ 'bash': ['shellcheck'],
-      \ 'zsh': ['shellcheck'],
-      \ 'fish': ['shellcheck'],
-      \ 'json': ['jsonlint'],
-      \ 'css': ['csslint'],
-      \ 'javascript': ['eslint'],
-      \ 'go': ['gopls'],
-      \ 'rust': ['rls'],
-      \}
-
-let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
-let g:ale_echo_msg_format = '[%linter%]% code%: %s'
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_open_list = 'on_save'
-let g:ale_c_parse_makefile = 1
-let g:ale_completion_delay = 500
-let g:ale_list_window_size = 10
-let g:ale_list_vertical = 0
-let g:ale_list_window_size = 1
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-let g:ale_open_list = 1
-let g:ale_keep_list_window_open = 1
-
-let g:ale_rust_rls_toolchain = 'stable'
-autocmd QuitPre * if empty(&bt) | lclose | endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " coc.nvim
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -56,15 +18,16 @@ nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> U :call <SID>show_documentation()<CR>
-nmap <leader>rn <Plug>(coc-rename)
-vmap <leader>f  <Plug>(coc-format-selected)
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent> <space>n  :<C-u>CocNext<CR>
-nnoremap <silent> <space>p  :<C-u>CocPrev<CR>
-nnoremap <silent> <space>r  :<C-u>CocListResume<CR>
+nmap <localleader>rn <Plug>(coc-rename)
+vmap <localleader>f  <Plug>(coc-format-selected)
+nnoremap <silent> <localleader>d  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <localleader>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <localleader>c  :<C-u>CocList commands<cr>
+nnoremap <silent> <localleader>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <localleader>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <localleader>n  :<C-u>CocNext<CR>
+nnoremap <silent> <localleader>p  :<C-u>CocPrev<CR>
+nnoremap <silent> <localleader>r  :<C-u>CocListResume<CR>
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
@@ -79,6 +42,20 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 let g:coc_disable_startup_warning = 1
+
+set updatetime=300
+set signcolumn=yes
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ulti-snips
+let g:UltiSnipsEditSplit = 'vertical'
+let g:UltiSnipsSnippetsDir = '~/.config/nvim/UltiSnips'
+" let g:UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
+let g:UltiSnipsExpandTrigger = '<c-u>'
+let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+let g:UltiSnipsListSnippets = '<m-u>'
+let g:UltiSnipsRemoveSelectModeMappings = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-go
@@ -115,9 +92,22 @@ if !exists('g:tagbar_type_rust')
    \ }
 endif
 
-"autocmd FileType fish call s:fish_settings()
-"function! s:fish_settings()
-"  compiler fish
-"  setlocal textwidth=79
-"  setlocal foldmethod=expr
-"endfunction
+autocmd FileType fish call s:fish_settings()
+function! s:fish_settings()
+  compiler fish
+  setlocal textwidth=79
+  setlocal foldmethod=expr
+  setlocal nofoldenable
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-yaml-helper
+let g:vim_yaml_helper#auto_display_path = 1
+
+autocmd FileType yaml call YAML_SETTING()
+function! YAML_SETTING()
+  setlocal foldmethod=indent
+  setlocal foldlevel=1
+  setlocal foldclose=all
+  setlocal nofoldenable
+endfunction

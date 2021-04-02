@@ -60,11 +60,6 @@ if test -n "$TMUX"
   exit 0
 end
 
-#if ! tty
-#echo tty
-#  exit 0
-#end
-
 if test -n "$TMUX_SOCK"
   alias tmux='tmux -S $TMUX_SOCK'
 end
